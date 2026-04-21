@@ -15,1071 +15,779 @@
   --border: #2E1E18;
   --accent: #E36750;
   --accent2: #D9D9D9;
-  --danger: #E36750;
   --success: #A8C5A0;
-  --gold: #D9D9D9;
   --text: #FAF7F1;
   --muted: #8A7068;
   --white: #FAF7F1;
 }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; font-size:16px; }
+.container { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.7;
-  font-size: 16px;
-}
-
-.container { max-width: 780px; margin: 0 auto; padding: 32px 20px 80px; }
-
-/* ── HEADER ── */
+/* ── HERO ── */
 .hero {
-  position: relative;
-  padding: 56px 40px 48px;
-  border-radius: 24px;
-  background: linear-gradient(135deg, #0E0B0A 0%, #1A0C07 40%, #0E0B0A 100%);
-  border: 1px solid var(--border);
-  margin-bottom: 32px;
-  overflow: hidden;
-  text-align: center;
+  position:relative; padding:56px 40px 48px; border-radius:24px;
+  background:linear-gradient(135deg,#0E0B0A 0%,#1A0C07 40%,#0E0B0A 100%);
+  border:1px solid var(--border); border-top:4px solid #E36750;
+  margin-bottom:24px; overflow:hidden; text-align:center;
 }
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -60px; right: -60px;
-  width: 300px; height: 300px;
-  background: radial-gradient(circle, rgba(227,103,80,0.18) 0%, transparent 70%);
-  pointer-events: none;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: -80px; left: -40px;
-  width: 250px; height: 250px;
-  background: radial-gradient(circle, rgba(73,22,4,0.25) 0%, transparent 70%);
-  pointer-events: none;
-}
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(227,103,80,0.12);
-  border: 1px solid rgba(227,103,80,0.3);
-  color: var(--accent);
-  padding: 5px 14px;
-  border-radius: 100px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-.hero-title {
-  font-family: 'Unbounded', sans-serif;
-  font-size: clamp(22px, 4vw, 34px);
-  font-weight: 900;
-  color: var(--white);
-  line-height: 1.15;
-  margin-bottom: 16px;
-  position: relative;
-}
-.hero-title span {
-  background: linear-gradient(90deg, #E36750, #D9D9D9);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.hero-sub {
-  font-size: 16px;
-  color: var(--muted);
-  max-width: 520px;
-  margin: 0 auto 28px;
-}
-.hero-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-.tag {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  color: var(--muted);
-  padding: 4px 12px;
-  border-radius: 100px;
-  font-size: 12px;
-  font-weight: 500;
-}
-
-/* ── STATS ── */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin-bottom: 32px;
-}
-.stat {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-top: 2px solid #491604;
-  border-radius: 16px;
-  padding: 20px 16px;
-  text-align: center;
-}
-.stat-val {
-  font-family: 'Unbounded', sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1;
-  margin-bottom: 6px;
-}
-.stat-lbl { font-size: 11px; color: var(--muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
-
-/* ── ACCORDION ── */
-.section {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  margin-bottom: 12px;
-  overflow: hidden;
-  transition: border-color 0.2s;
-}
-.section:hover { border-color: rgba(227,103,80,0.35); }
-.section.open { border-color: rgba(227,103,80,0.45); }
-
-.section-head {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 22px 24px;
-  cursor: pointer;
-  user-select: none;
-}
-.section-icon {
-  width: 44px; height: 44px;
-  border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 20px;
-  flex-shrink: 0;
-  background: linear-gradient(135deg, #491604, #2A0E02);
-}
-.section-title {
-  font-family: 'Unbounded', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--white);
-  flex: 1;
-  line-height: 1.3;
-}
-.section-arrow {
-  color: var(--muted);
-  transition: transform 0.3s ease;
-  flex-shrink: 0;
-}
-.section.open .section-arrow { transform: rotate(180deg); }
-
-.section-body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease-out;
-}
-.section-inner {
-  padding: 0 24px 28px;
-  border-top: 1px solid var(--border);
-}
-
-/* ── CONTENT ── */
-p { margin-bottom: 14px; color: var(--text); }
-h3 {
-  font-family: 'Unbounded', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--white);
-  margin: 24px 0 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-ul, ol { padding-left: 20px; margin-bottom: 14px; }
-li { margin-bottom: 6px; color: var(--text); }
-strong { color: var(--white); font-weight: 600; }
-
-/* Boxes */
-.box {
-  border-radius: 14px;
-  padding: 20px;
-  margin: 20px 0;
-}
-.box-head {
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.box-blue {
-  background: rgba(227,103,80,0.07);
-  border: 1px solid rgba(227,103,80,0.22);
-}
-.box-blue .box-head { color: var(--accent); }
-
-.box-red {
-  background: rgba(73,22,4,0.35);
-  border: 1px solid rgba(227,103,80,0.25);
-}
-.box-red .box-head { color: var(--accent); }
-
-.box-green {
-  background: rgba(168,197,160,0.08);
-  border: 1px solid rgba(168,197,160,0.25);
-}
-.box-green .box-head { color: var(--success); }
-
-.box-gold {
-  background: rgba(217,217,217,0.06);
-  border: 1px solid rgba(217,217,217,0.2);
-}
-.box-gold .box-head { color: var(--platinum, #D9D9D9); }
-
-/* Quote */
-.quote {
-  border-left: 3px solid var(--accent2);
-  padding: 12px 0 12px 20px;
-  margin: 20px 0;
-  font-style: italic;
-  font-size: 17px;
-  color: var(--white);
-  line-height: 1.5;
-}
-.quote-by { font-size: 13px; color: var(--muted); font-style: normal; margin-top: 6px; }
-
-/* Stages */
-.stages { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
-.stage {
-  display: flex;
-  gap: 16px;
-  padding: 16px;
-  background: var(--surface2);
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  align-items: flex-start;
-}
-.stage.active {
-  background: linear-gradient(135deg, rgba(73,22,4,0.45) 0%, rgba(34,10,2,0.6) 100%);
-  border-color: rgba(227,103,80,0.35);
-}
-.stage-num {
-  font-family: 'Unbounded', sans-serif;
-  font-size: 20px;
-  font-weight: 900;
-  color: var(--border);
-  min-width: 36px;
-  line-height: 1;
-  padding-top: 2px;
-}
-.stage.active .stage-num { color: var(--accent); }
-.stage-title { font-weight: 600; color: var(--white); margin-bottom: 4px; font-size: 15px; }
-.stage-text { font-size: 14px; color: var(--muted); line-height: 1.5; }
-
-/* Mistakes */
-.mistake { margin-bottom: 16px; }
-.mistake-bad {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 14px 16px;
-  background: rgba(73,22,4,0.4);
-  border: 1px solid rgba(227,103,80,0.2);
-  border-radius: 10px 10px 0 0;
-  font-size: 15px;
-  color: var(--text);
-}
-.mistake-bad::before { content: '✗'; color: var(--accent); font-weight: 700; font-size: 16px; flex-shrink: 0; padding-top: 1px; }
-.mistake-good {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 14px 16px;
-  background: rgba(168,197,160,0.07);
-  border: 1px solid rgba(168,197,160,0.2);
-  border-radius: 0 0 10px 10px;
-  font-size: 15px;
-  color: var(--text);
-  border-top: none;
-}
-.mistake-good::before { content: '✓'; color: var(--success); font-weight: 700; font-size: 16px; flex-shrink: 0; padding-top: 1px; }
-
-/* Math table */
-.math-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 16px 0;
-  font-size: 14px;
-}
-.math-table th {
-  background: linear-gradient(135deg, #491604, #2A0E02);
-  color: var(--accent2);
-  font-weight: 600;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding: 10px 14px;
-  text-align: left;
-  border: 1px solid var(--border);
-}
-.math-table td {
-  padding: 10px 14px;
-  border: 1px solid var(--border);
-  color: var(--text);
-}
-.math-table tr:nth-child(even) td { background: var(--surface2); }
-.math-table tr.highlight td { color: var(--accent); font-weight: 700; background: rgba(73,22,4,0.35); }
-}
-.math-table td {
-  padding: 10px 14px;
-  border: 1px solid var(--border);
-  color: var(--text);
-}
-.math-table tr:nth-child(even) td { background: var(--surface2); }
-.math-table tr.highlight td { color: var(--accent); font-weight: 700; background: rgba(59,130,246,0.08); }
-
-/* Alliance cards */
-.alliance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0; }
-.alliance-card {
-  padding: 16px;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-}
-.alliance-card-icon { font-size: 22px; margin-bottom: 8px; }
-.alliance-card-title { font-weight: 600; color: var(--white); font-size: 14px; margin-bottom: 4px; }
-.alliance-card-text { font-size: 13px; color: var(--muted); line-height: 1.5; }
-
-/* ── CHECKLIST ── */
-.checklist {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-top: 3px solid #E36750;
-  border-radius: 24px;
-  padding: 36px;
-  margin-top: 32px;
-  background: linear-gradient(180deg, rgba(73,22,4,0.18) 0%, var(--surface) 60px);
-}
-.checklist-title {
-  font-family: 'Unbounded', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 6px;
-}
-.checklist-sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
-.chk-group {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--accent);
-  margin: 24px 0 12px;
-}
-.chk-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--border);
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-.chk-item:hover { opacity: 0.85; }
-.chk-item:last-child { border-bottom: none; }
-.chk-box {
-  width: 22px; height: 22px;
-  border: 2px solid var(--border);
-  border-radius: 6px;
-  flex-shrink: 0;
-  margin-top: 1px;
-  position: relative;
-  transition: all 0.2s;
-}
-.chk-item.done .chk-box {
-  background: var(--accent);
-  border-color: var(--accent);
-}
-.chk-item.done .chk-box::after {
-  content: '';
-  position: absolute;
-  left: 5px; top: 2px;
-  width: 5px; height: 10px;
-  border: 2px solid #fff;
-  border-top: none; border-left: none;
-  transform: rotate(45deg);
-}
-.chk-text strong {
-  display: block;
-  font-size: 15px;
-  color: var(--white);
-  font-weight: 600;
-  margin-bottom: 2px;
-  transition: color 0.2s;
-}
-.chk-item.done .chk-text strong {
-  color: var(--muted);
-  text-decoration: line-through;
-}
-.chk-text span { font-size: 13px; color: var(--muted); }
-
-.progress-wrap { margin-top: 24px; }
-.progress-top {
-  display: flex;
-  justify-content: space-between;
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-.progress-bar-bg {
-  height: 6px;
-  background: var(--border);
-  border-radius: 3px;
-  overflow: hidden;
-}
-.progress-bar {
-  height: 100%;
-  background: linear-gradient(90deg, #491604, #E36750);
-  border-radius: 3px;
-  transition: width 0.4s ease;
-  width: 0%;
-}
-
-/* ── CTA ── */
-.cta {
-  text-align: center;
-  padding: 48px 40px;
-  background: linear-gradient(135deg, rgba(73,22,4,0.35) 0%, rgba(227,103,80,0.1) 100%);
-  border: 1px solid rgba(227,103,80,0.3);
-  border-radius: 24px;
-  margin-top: 32px;
-}
-.cta-label {
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--accent2);
-  margin-bottom: 16px;
-}
-.cta-title {
-  font-family: 'Unbounded', sans-serif;
-  font-size: clamp(20px, 3.5vw, 28px);
-  font-weight: 900;
-  color: var(--white);
-  line-height: 1.2;
-  margin-bottom: 12px;
-}
-.cta-word {
-  font-family: 'Unbounded', sans-serif;
-  font-size: 32px;
-  font-weight: 900;
-  background: linear-gradient(90deg, #E36750, #D9D9D9);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  display: block;
-  margin: 20px 0;
-  letter-spacing: -0.5px;
-}
-.cta-sub { font-size: 15px; color: var(--muted); margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto; }
-.cta-note { font-size: 13px; color: var(--muted); margin-top: 16px; }
+.hero::before { content:''; position:absolute; top:-60px; right:-60px; width:300px; height:300px; background:radial-gradient(circle,rgba(227,103,80,.18) 0%,transparent 70%); pointer-events:none; }
+.hero::after { content:''; position:absolute; bottom:-80px; left:-40px; width:250px; height:250px; background:radial-gradient(circle,rgba(73,22,4,.25) 0%,transparent 70%); pointer-events:none; }
+.hero-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(227,103,80,.12); border:1px solid rgba(227,103,80,.3); color:var(--accent); padding:5px 14px; border-radius:100px; font-size:12px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; margin-bottom:20px; }
+.hero-title { font-family:'Unbounded',sans-serif; font-size:clamp(22px,4vw,36px); font-weight:900; color:var(--white); line-height:1.15; margin-bottom:16px; }
+.hero-title span { background:linear-gradient(90deg,#E36750,#D9D9D9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.hero-sub { font-size:16px; color:var(--muted); max-width:520px; margin:0 auto 32px; }
+.channel-link { display:inline-flex; align-items:center; gap:5px; font-size:13px; color:var(--muted); text-decoration:none; margin-top:16px; }
+.channel-link:hover { color:var(--accent2); }
 
 /* ── BUTTONS ── */
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: var(--accent);
-  color: #FAF7F1;
-  font-family: 'Unbounded', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  padding: 16px 36px;
-  border-radius: 14px;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.15s;
-  letter-spacing: 0.3px;
-}
-.btn-primary:hover { background: #C9523E; transform: translateY(-2px); }
+.btn-primary { display:inline-flex; align-items:center; justify-content:center; gap:8px; background:var(--accent); color:#FAF7F1; font-family:'Unbounded',sans-serif; font-size:14px; font-weight:700; padding:16px 36px; border-radius:14px; text-decoration:none; transition:background .2s,transform .15s; }
+.btn-primary:hover { background:#C9523E; transform:translateY(-2px); }
+.btn-secondary { display:inline-flex; align-items:center; justify-content:center; gap:8px; background:transparent; color:var(--accent2); font-family:'Unbounded',sans-serif; font-size:13px; font-weight:600; padding:13px 28px; border-radius:14px; border:1.5px solid rgba(217,217,217,.3); text-decoration:none; transition:border-color .2s,background .2s,transform .15s; }
+.btn-secondary:hover { border-color:var(--accent2); background:rgba(217,217,217,.06); transform:translateY(-2px); }
+.btn-group { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:24px; }
 
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: transparent;
-  color: var(--accent2);
-  font-family: 'Unbounded', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 13px 28px;
-  border-radius: 14px;
-  border: 1.5px solid rgba(217,217,217,0.3);
-  text-decoration: none;
-  transition: border-color 0.2s, background 0.2s, transform 0.15s;
-}
-.btn-secondary:hover { border-color: var(--accent2); background: rgba(217,217,217,0.06); transform: translateY(-2px); }
+/* ── PAIN STATS ── */
+.pain-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:24px; }
+.pain-stat { background:var(--surface); border:1px solid var(--border); border-top:2px solid #491604; border-radius:14px; padding:18px 14px; text-align:center; }
+.pain-stat-val { font-family:'Unbounded',sans-serif; font-size:22px; font-weight:900; color:var(--accent); line-height:1; margin-bottom:6px; }
+.pain-stat-lbl { font-size:12px; color:var(--muted); line-height:1.4; }
 
-.btn-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-  margin: 20px 0 8px;
-}
+/* ── HINT ── */
+.accordion-hint { display:flex; align-items:center; justify-content:center; gap:8px; font-size:13px; color:var(--muted); margin-bottom:18px; padding:8px; }
+.hint-arrow { animation:bounce .8s ease-in-out infinite; }
+@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(4px)} }
 
-/* Mid-CTA */
-.mid-cta {
-  background: linear-gradient(135deg, rgba(73,22,4,0.3) 0%, rgba(227,103,80,0.07) 100%);
-  border: 1px solid rgba(227,103,80,0.2);
-  border-radius: 20px;
-  padding: 32px;
-  text-align: center;
-  margin: 28px 0;
-}
-.mid-cta-title {
-  font-family: 'Unbounded', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 8px;
-}
-.mid-cta-sub { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+/* ── PART LABEL ── */
+.part-label { display:flex; align-items:center; gap:12px; margin:36px 0 14px; }
+.part-label-line { flex:1; height:1px; background:var(--border); }
+.part-label-text { font-family:'Unbounded',sans-serif; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); white-space:nowrap; }
 
-/* Channel badge in header */
-.channel-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(217,217,217,0.08);
-  border: 1px solid rgba(217,217,217,0.2);
-  color: var(--accent2);
-  padding: 5px 14px;
-  border-radius: 100px;
-  font-size: 12px;
-  font-weight: 600;
-  text-decoration: none;
-  margin-bottom: 16px;
-  transition: background 0.2s;
-}
-.channel-badge:hover { background: rgba(217,217,217,0.14); }
+/* ── ACCORDION ── */
+.section { background:var(--surface); border:1px solid var(--border); border-radius:20px; margin-bottom:10px; overflow:hidden; transition:border-color .2s; }
+.section:hover { border-color:rgba(227,103,80,.4); }
+.section.open { border-color:rgba(227,103,80,.5); }
+.section-head { display:flex; align-items:center; gap:14px; padding:20px 22px; cursor:pointer; user-select:none; transition:background .15s; }
+.section-head:hover { background:rgba(227,103,80,.04); }
+.section-icon { width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; background:linear-gradient(135deg,#491604,#2A0E02); }
+.section-title { font-family:'Unbounded',sans-serif; font-size:14px; font-weight:600; color:var(--white); flex:1; line-height:1.3; }
+.section-arrow { width:20px; height:20px; color:var(--muted); transition:transform .3s ease,color .2s; flex-shrink:0; }
+.section.open .section-arrow { transform:rotate(180deg); color:var(--accent); }
+.section-body { max-height:0; overflow:hidden; transition:max-height .4s ease-out; }
+.section-inner { padding:0 22px 26px; border-top:1px solid var(--border); }
+
+/* ── CONTENT ── */
+p { margin-bottom:14px; color:var(--text); }
+h3 { font-family:'Unbounded',sans-serif; font-size:12px; font-weight:700; color:var(--white); margin:22px 0 8px; text-transform:uppercase; letter-spacing:.5px; }
+ul,ol { padding-left:20px; margin-bottom:14px; }
+li { margin-bottom:7px; color:var(--text); }
+strong { color:var(--white); font-weight:600; }
+
+/* ── BOXES ── */
+.box { border-radius:14px; padding:18px; margin:18px 0; }
+.box-head { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; margin-bottom:8px; }
+.box-info { background:rgba(227,103,80,.07); border:1px solid rgba(227,103,80,.22); }
+.box-info .box-head { color:var(--accent); }
+.box-dark { background:rgba(73,22,4,.35); border:1px solid rgba(227,103,80,.2); }
+.box-dark .box-head { color:var(--accent); }
+.box-light { background:rgba(217,217,217,.05); border:1px solid rgba(217,217,217,.15); }
+.box-light .box-head { color:var(--accent2); }
+.box-success { background:rgba(168,197,160,.08); border:1px solid rgba(168,197,160,.25); }
+.box-success .box-head { color:var(--success); }
+
+/* ── QUOTE ── */
+.quote { border-left:3px solid var(--accent2); padding:10px 0 10px 18px; margin:18px 0; font-style:italic; font-size:16px; color:var(--white); line-height:1.6; }
+.quote-by { font-size:12px; color:var(--muted); font-style:normal; margin-top:4px; }
+
+/* ── PHOTO PLACEHOLDER ── */
+.photo-ph { width:100%; background:var(--surface2); border:1.5px dashed var(--border); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:28px 20px; margin:16px 0; text-align:center; gap:6px; }
+.photo-ph-icon { font-size:28px; opacity:.4; }
+.photo-ph-label { font-size:12px; color:var(--muted); font-weight:600; }
+.photo-ph-file { font-size:11px; color:var(--border); font-family:monospace; background:var(--bg); padding:3px 8px; border-radius:4px; margin-top:4px; }
+.photo-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:16px 0; }
+
+/* ── STAGES ── */
+.stages { display:flex; flex-direction:column; gap:8px; margin:16px 0; }
+.stage { display:flex; gap:14px; padding:16px; background:var(--surface2); border-radius:12px; border:1px solid var(--border); align-items:flex-start; }
+.stage.active { background:linear-gradient(135deg,rgba(73,22,4,.45),rgba(34,10,2,.6)); border-color:rgba(227,103,80,.35); }
+.stage-num { font-family:'Unbounded',sans-serif; font-size:20px; font-weight:900; color:var(--border); min-width:36px; line-height:1; padding-top:2px; }
+.stage.active .stage-num { color:var(--accent); }
+.stage-title { font-weight:600; color:var(--white); margin-bottom:4px; font-size:15px; }
+.stage-text { font-size:14px; color:var(--muted); line-height:1.5; }
+
+/* ── MISTAKES ── */
+.mistake { margin-bottom:12px; }
+.mistake-bad { display:flex; align-items:flex-start; gap:10px; padding:13px 16px; background:rgba(73,22,4,.4); border:1px solid rgba(227,103,80,.2); border-radius:10px 10px 0 0; font-size:15px; color:var(--text); }
+.mistake-bad::before { content:'✗'; color:var(--accent); font-weight:700; font-size:16px; flex-shrink:0; padding-top:1px; }
+.mistake-good { display:flex; align-items:flex-start; gap:10px; padding:13px 16px; background:rgba(168,197,160,.07); border:1px solid rgba(168,197,160,.2); border-radius:0 0 10px 10px; font-size:15px; color:var(--text); border-top:none; }
+.mistake-good::before { content:'✓'; color:var(--success); font-weight:700; font-size:16px; flex-shrink:0; padding-top:1px; }
+
+/* ── MATH TABLE ── */
+.math-table { width:100%; border-collapse:collapse; margin:16px 0; font-size:14px; }
+.math-table th { background:linear-gradient(135deg,#491604,#2A0E02); color:var(--accent2); font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:.5px; padding:10px 14px; text-align:left; border:1px solid var(--border); }
+.math-table td { padding:10px 14px; border:1px solid var(--border); color:var(--text); }
+.math-table tr:nth-child(even) td { background:var(--surface2); }
+.math-table tr.hl td { color:var(--accent); font-weight:700; background:rgba(73,22,4,.35); }
+
+/* ── PORTRAITS ── */
+.portraits { display:flex; flex-direction:column; gap:10px; margin:16px 0; }
+.portrait { padding:18px 20px; background:var(--surface2); border:1px solid var(--border); border-left:3px solid #491604; border-radius:0 12px 12px 0; }
+.portrait-title { font-weight:700; color:var(--white); font-size:15px; margin-bottom:8px; }
+.portrait-text { font-size:14px; color:var(--muted); line-height:1.6; margin:0; }
+
+/* ── PATHS ── */
+.paths { display:flex; flex-direction:column; gap:8px; margin:16px 0; }
+.path { display:flex; gap:14px; padding:16px 18px; background:var(--surface2); border:1px solid var(--border); border-radius:12px; }
+.path.danger { border-color:rgba(227,103,80,.2); background:rgba(73,22,4,.25); }
+.path.featured { border-color:rgba(227,103,80,.5); background:linear-gradient(135deg,rgba(73,22,4,.35),rgba(14,11,10,.9)); }
+.path-num { font-family:'Unbounded',sans-serif; font-size:18px; font-weight:900; color:var(--border); min-width:30px; line-height:1; padding-top:2px; }
+.path.danger .path-num { color:rgba(227,103,80,.4); }
+.path.featured .path-num { color:var(--accent); }
+.path-title { font-weight:700; color:var(--white); font-size:15px; margin-bottom:4px; }
+.path-text { font-size:14px; color:var(--muted); line-height:1.5; margin:0; }
+.path-badge { display:inline-block; background:var(--accent); color:#FAF7F1; font-size:10px; font-weight:700; padding:2px 8px; border-radius:100px; text-transform:uppercase; letter-spacing:.5px; margin-left:8px; vertical-align:middle; }
+
+/* ── OPORY ── */
+.opory { display:flex; flex-direction:column; gap:10px; margin:16px 0; }
+.opora { padding:18px 20px; background:var(--surface2); border:1px solid var(--border); border-left:3px solid #E36750; border-radius:0 12px 12px 0; }
+.opora-num { font-family:'Unbounded',sans-serif; font-size:10px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
+.opora-title { font-weight:700; color:var(--white); font-size:15px; margin-bottom:6px; }
+.opora-text { font-size:14px; color:var(--muted); line-height:1.6; margin:0; }
+
+/* ── DIFF TABLE ── */
+.diff { width:100%; border-collapse:collapse; margin:16px 0; font-size:14px; }
+.diff th { padding:10px 14px; text-align:left; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; background:var(--surface2); color:var(--muted); border:1px solid var(--border); }
+.diff td { padding:10px 14px; border:1px solid var(--border); color:var(--text); vertical-align:top; }
+.diff tr:nth-child(even) td { background:rgba(24,18,16,.5); }
+.diff .bad { color:var(--muted); }
+
+/* ── STEPS ── */
+.steps { display:flex; flex-direction:column; margin:16px 0; }
+.step { display:flex; gap:16px; padding:16px 0; border-bottom:1px solid var(--border); align-items:flex-start; }
+.step:last-child { border-bottom:none; }
+.step-num { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,#491604,#E36750); display:flex; align-items:center; justify-content:center; font-family:'Unbounded',sans-serif; font-size:13px; font-weight:700; color:#FAF7F1; flex-shrink:0; margin-top:2px; }
+.step-title { font-weight:600; color:var(--white); font-size:15px; margin-bottom:4px; }
+.step-text { font-size:14px; color:var(--muted); line-height:1.5; }
+
+/* ── STORIES ── */
+.stories { display:flex; flex-direction:column; gap:10px; margin:16px 0; }
+.story { padding:18px 20px; background:var(--surface2); border:1px solid var(--border); border-radius:14px; }
+.story-title { font-weight:700; color:var(--white); font-size:15px; margin-bottom:8px; display:flex; align-items:center; gap:8px; }
+.story-text { font-size:14px; color:var(--muted); line-height:1.6; margin:0; }
+
+/* ── PRICE ANCHOR ── */
+.price-guesses { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:12px; }
+.price-guess { background:var(--surface2); border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center; }
+.price-guess-val { font-family:'Unbounded',sans-serif; font-size:16px; font-weight:700; color:var(--muted); text-decoration:line-through; opacity:.6; }
+.price-guess-lbl { font-size:11px; color:var(--muted); margin-top:3px; }
+.price-real { background:linear-gradient(135deg,rgba(73,22,4,.4),rgba(14,11,10,.9)); border:1px solid rgba(227,103,80,.4); border-radius:14px; padding:24px; text-align:center; margin-bottom:14px; }
+.price-real-label { font-size:12px; color:var(--muted); margin-bottom:6px; text-transform:uppercase; letter-spacing:.5px; font-weight:600; }
+.price-real-val { font-family:'Unbounded',sans-serif; font-size:34px; font-weight:900; color:var(--white); margin-bottom:4px; }
+.price-real-sub { font-size:13px; color:var(--muted); }
+.price-real-alt { font-size:13px; color:var(--muted); margin-top:10px; }
+.price-real-alt strong { color:var(--accent2); }
+
+/* ── CHAT BUBBLES ── */
+.chat-bubbles { display:flex; flex-direction:column; gap:8px; margin:16px 0; }
+.bubble { display:flex; align-items:flex-end; gap:8px; }
+.bubble.right { flex-direction:row-reverse; }
+.bubble-avatar { width:30px; height:30px; border-radius:50%; background:linear-gradient(135deg,#491604,#E36750); display:flex; align-items:center; justify-content:center; font-size:14px; flex-shrink:0; }
+.bubble-text { max-width:78%; background:var(--surface2); border:1px solid var(--border); border-radius:14px; border-bottom-left-radius:4px; padding:10px 14px; font-size:14px; color:var(--text); line-height:1.5; }
+.bubble.right .bubble-text { border-bottom-left-radius:14px; border-bottom-right-radius:4px; background:rgba(73,22,4,.35); border-color:rgba(227,103,80,.2); }
+
+/* ── SLOTS ── */
+.slots-block { background:var(--surface2); border:1px solid var(--border); border-radius:14px; padding:18px; margin:16px 0; display:flex; align-items:center; gap:16px; }
+.slots-bar-wrap { flex:1; }
+.slots-bar-label { display:flex; justify-content:space-between; font-size:12px; color:var(--muted); margin-bottom:6px; }
+.slots-bar-bg { height:8px; background:var(--border); border-radius:4px; overflow:hidden; }
+.slots-bar-fill { height:100%; background:linear-gradient(90deg,#491604,#E36750); border-radius:4px; width:62%; }
+.slots-text { font-size:13px; color:var(--muted); flex-shrink:0; text-align:right; }
+.slots-num { font-family:'Unbounded',sans-serif; font-size:18px; font-weight:900; color:var(--accent); display:block; }
+
+/* ── MID CTA ── */
+.mid-cta { background:linear-gradient(135deg,rgba(73,22,4,.3) 0%,rgba(227,103,80,.07) 100%); border:1px solid rgba(227,103,80,.2); border-radius:20px; padding:30px; text-align:center; margin:28px 0; }
+.mid-cta-title { font-family:'Unbounded',sans-serif; font-size:16px; font-weight:700; color:var(--white); margin-bottom:8px; }
+.mid-cta-sub { font-size:14px; color:var(--muted); margin-bottom:20px; }
+
+/* ── FINAL CTA ── */
+.final-cta { text-align:center; padding:48px 40px; background:linear-gradient(135deg,rgba(73,22,4,.35) 0%,rgba(227,103,80,.1) 100%); border:1px solid rgba(227,103,80,.3); border-radius:24px; margin-top:32px; }
+.final-cta-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent2); margin-bottom:16px; }
+.final-cta-title { font-family:'Unbounded',sans-serif; font-size:clamp(20px,3.5vw,28px); font-weight:900; color:var(--white); line-height:1.2; margin-bottom:12px; }
+.final-cta-sub { font-size:15px; color:var(--muted); margin-bottom:10px; max-width:480px; margin-left:auto; margin-right:auto; }
+.final-cta-note { font-size:13px; color:var(--muted); margin-top:16px; }
 
 /* ── FOOTER ── */
-footer {
-  text-align: center;
-  padding: 40px 0 0;
-  border-top: 1px solid var(--border);
-  margin-top: 40px;
-}
-.footer-brand {
-  font-family: 'Unbounded', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  background: linear-gradient(90deg, #E36750, #D9D9D9);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 8px;
-}
-.footer-note { font-size: 13px; color: var(--muted); }
+footer { text-align:center; padding:36px 0 0; border-top:1px solid var(--border); margin-top:40px; }
+.footer-brand { font-family:'Unbounded',sans-serif; font-size:14px; font-weight:700; background:linear-gradient(90deg,#E36750,#D9D9D9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:8px; }
+.footer-note { font-size:13px; color:var(--muted); margin-bottom:14px; }
+.footer-links { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; }
+.footer-links a { font-size:13px; color:var(--muted); text-decoration:none; }
+.footer-links a:hover { color:var(--accent2); }
 
-@media (max-width: 600px) {
-  .stats { grid-template-columns: repeat(2, 1fr); }
-  .alliance-grid { grid-template-columns: 1fr; }
-  .hero { padding: 36px 24px 32px; }
-  .checklist { padding: 24px 20px; }
-  .cta { padding: 36px 24px; }
+@media(max-width:600px){
+  .pain-stats { grid-template-columns:repeat(3,1fr); gap:6px; }
+  .pain-stat-val { font-size:18px; }
+  .photo-row { grid-template-columns:1fr; }
+  .price-guesses { grid-template-columns:repeat(3,1fr); }
+  .hero { padding:36px 20px 32px; }
+  .final-cta { padding:36px 24px; }
+  .section-inner { padding:0 16px 22px; }
+  .section-title { font-size:13px; }
 }
 </style>
 </head>
 <body>
 <div class="container">
 
-<!-- HERO -->
+<!-- ══ HERO ══ -->
 <header class="hero">
-  <a href="https://t.me/piratlinks" target="_blank" class="channel-badge">📡 Канал Шеф Пиратович</a>
-  <div class="hero-badge">⚡ Интерактивная статья</div>
+  <div class="hero-badge">⚡ Шеф Пиратович</div>
   <h1 class="hero-title">Система <span>ленивого трейдинга</span>:<br>+10–30% в месяц без хаоса</h1>
-  <p class="hero-sub">Как зарабатывать на крипте, не следя за рынком круглосуточно, не гоняясь за сигналами и не теряя депозит на каждом дампе</p>
-  <div class="hero-tags">
-    <span class="tag">#ЛенивыйТрейдинг</span>
-    <span class="tag">#УмныеДеньги</span>
-    <span class="tag">#Система</span>
-    <span class="tag">#БезХаоса</span>
-    <span class="tag">#Крипта</span>
-  </div>
+  <p class="hero-sub">Как зарабатывать на крипте не гоняясь за сигналами, не теряя депозит на каждом дампе и не сидя у монитора круглосуточно</p>
+  <a href="https://t.me/piratlinks" target="_blank" class="channel-link">📡 Основной канал @piratlinks</a>
 </header>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stat"><div class="stat-val">70%</div><div class="stat-lbl">трейдеров в минусе по году</div></div>
-  <div class="stat"><div class="stat-val">200+</div><div class="stat-lbl">приваток изучено командой</div></div>
-  <div class="stat"><div class="stat-val">1–3</div><div class="stat-lbl">сделки в месяц по системе</div></div>
-  <div class="stat"><div class="stat-val">15 мин</div><div class="stat-lbl">в день на мониторинг</div></div>
+<!-- PAIN STATS -->
+<div class="pain-stats">
+  <div class="pain-stat">
+    <div class="pain-stat-val">70%</div>
+    <div class="pain-stat-lbl">трейдеров закрывают год в минус</div>
+  </div>
+  <div class="pain-stat">
+    <div class="pain-stat-val">99%</div>
+    <div class="pain-stat-lbl">альткоинов не переживают медвежку</div>
+  </div>
+  <div class="pain-stat">
+    <div class="pain-stat-val">−85%</div>
+    <div class="pain-stat-lbl">средняя ликвидация на фьючерсах</div>
+  </div>
 </div>
 
-<!-- SECTION 1 -->
+<div class="accordion-hint">
+  <span>Нажми на любой раздел чтобы прочитать</span>
+  <svg class="hint-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+</div>
+
+<!-- ════════════════════════════════════════
+     ЧАСТЬ 1 — СИСТЕМА ЛЕНИВОГО ТРЕЙДИНГА
+═════════════════════════════════════════ -->
+<div class="part-label">
+  <div class="part-label-line"></div>
+  <div class="part-label-text">Часть 1 — Система ленивого трейдинга</div>
+  <div class="part-label-line"></div>
+</div>
+
+<!-- S1: РЫНОК ИЗМЕНИЛСЯ -->
 <div class="section open" id="s1">
   <div class="section-head" onclick="toggle('s1')">
     <div class="section-icon">🌊</div>
     <div class="section-title">Рынок изменился — и не в твою пользу</div>
-    <svg class="section-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
-  <div class="section-body">
-    <div class="section-inner">
-      <p>Ещё несколько лет назад можно было торговать хаотично и зарабатывать — бычий рынок прощал всё. Зашёл наугад, поймал рост, почувствовал себя гением. Это закончилось.</p>
-      <p>Сегодня манипуляции точнее. Ликвидации глубже. Инфошум громче. Сотни Telegram-каналов с «аналитикой», тысячи сигналов в день. В этом потоке без системы ты теряешь деньги быстрее, чем раньше — просто потому что поводов для ошибок стало больше.</p>
-
-      <div class="box box-red">
-        <div class="box-head">⚡ Неудобная статистика</div>
-        <p style="margin:0">Больше 70% розничных трейдеров закрывают год в минус. Не потому что рынок плохой. А потому что торгуют без логики, без фильтра, без дисциплины.</p>
-      </div>
-
-      <p>Но у этой статистики есть обратная сторона.</p>
-      <p>Те 30%, которые в плюсе, зарабатывают <strong>на остальных 70%</strong>. Рынок перераспределяет деньги от хаотичных к системным. Всегда. Это не теория — это механика.</p>
-
-      <div class="box box-blue">
-        <div class="box-head">💡 Суть</div>
-        <p style="margin:0">Прямо сейчас у тебя есть возможность оказаться на правильной стороне этой статистики. Всё что нужно — система вместо хаоса.</p>
-      </div>
+  <div class="section-body"><div class="section-inner">
+    <p>Ещё несколько лет назад можно было торговать хаотично и зарабатывать — бычий рынок прощал всё. Зашёл наугад, поймал рост, почувствовал себя гением. Это закончилось.</p>
+    <p>Сегодня манипуляции точнее. Ликвидации глубже. Инфошум громче. Сотни Telegram-каналов с «аналитикой», тысячи сигналов в день. В этом потоке без системы ты теряешь деньги быстрее, чем раньше.</p>
+    <div class="box box-dark">
+      <div class="box-head">⚡ Неудобная статистика</div>
+      <p style="margin:0">Больше 70% розничных трейдеров закрывают год в минус. Не потому что рынок плохой — а потому что торгуют без логики, без фильтра, без дисциплины.</p>
     </div>
-  </div>
+    <p>Но у этой статистики есть обратная сторона. Те 30%, которые в плюсе, зарабатывают <strong>на остальных 70%</strong>. Рынок перераспределяет деньги от хаотичных к системным. Всегда. Это не теория — это механика.</p>
+  </div></div>
 </div>
 
-<!-- SECTION 2 -->
+<!-- S2: ДВЕ ЛОЖНЫЕ СТРАТЕГИИ -->
 <div class="section" id="s2">
   <div class="section-head" onclick="toggle('s2')">
     <div class="section-icon">🚫</div>
-    <div class="section-title">Две стратегии, которые гарантированно ведут к сливу</div>
-    <svg class="section-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    <div class="section-title">Два пути которые гарантированно ведут к сливу</div>
+    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
-  <div class="section-body">
-    <div class="section-inner">
-      <p>Большинство пробует два пути. Оба приводят к одному результату.</p>
-
-      <h3>Стратегия 1: следовать сигналам гуру</h3>
-      <p>Кажется логичным — подписываешься на умных людей, повторяешь. Сделок становится больше, инфошума больше, а результаты только падают.</p>
-
-      <div class="box box-red">
-        <div class="box-head">🔥 Что случилось 10 октября</div>
-        <p>За несколько часов стоимость ряда альткоинов на биржах доходила до нуля. Депозит стирало вне зависимости от плеча.</p>
-        <p>А что делали известные крипто-инфлюенсеры?</p>
-        <ul style="margin:0">
-          <li><strong>Хамаха</strong> — сидел в лонгах на 2 млн$</li>
-          <li><strong>Моцарт</strong> — потерял весь профит который зарабатывал 2 года</li>
-          <li><strong>Романов</strong> — закупился альтой и ждал V-образного разворота</li>
-          <li><strong>BitcoinOG</strong> — тот самый с «100% винрейтом» — слил 270 млн$</li>
-        </ul>
-        <p style="margin-top:10px;margin-bottom:0">Следил бы за их каналами — в 70–80% случаев слил депозит в тот день.</p>
-      </div>
-
-      <p>Две причины почему это не работает:</p>
-      <ul>
-        <li><strong>Ты размываешь статистику.</strong> Берёшь минусовые сделки от разных авторов, а плюсовые пропускаешь — дали ночью или когда не было интернета.</li>
-        <li><strong>Инфлы зарабатывают не на рынке.</strong> Их доход — приватки, рефералки, реклама бирж. Твой минус им безразличен.</li>
-      </ul>
-
-      <h3>Стратегия 2: купить альты и ждать альтсезон</h3>
-      <p>Накупил монет, сидишь ровно: «хотя бы одна должна выстрелить». Реальность жёстче.</p>
-      <p>Монет стало слишком много — они появляются тысячами каждый месяц и умирают либо сразу, либо на первой медвежке. Пока ты держишь — часть альтов просто делистят с бирж.</p>
-
-      <div class="quote">
-        Лучше делать 100–300% годовых на BTC/ETH/SOL и сохранять капитал — чем гнаться за иксами по новым монетам и ловить минус 60–100%.
-        <div class="quote-by">— Шеф</div>
-      </div>
+  <div class="section-body"><div class="section-inner">
+    <p>Большинство пробует два пути. Оба приводят к одному результату.</p>
+    <h3>Путь 1: следовать сигналам гуру</h3>
+    <p>Кажется логичным — подписываешься на умных людей, повторяешь. Сделок становится больше, инфошума больше, а результаты только падают. Две причины:</p>
+    <ul>
+      <li><strong>Ты размываешь статистику.</strong> Берёшь минусовые сделки от разных авторов, а плюсовые пропускаешь — дали ночью или когда не было интернета.</li>
+      <li><strong>Инфлы зарабатывают не на рынке.</strong> Их доход — приватки, рефералки, реклама бирж. Твой минус им безразличен.</li>
+    </ul>
+    <div class="box box-dark">
+      <div class="box-head">🔥 Что случилось 10 октября</div>
+      <p>За несколько часов ряд альткоинов упал до нуля. <strong>Хамаха</strong> — лонги на 2 млн$. <strong>Моцарт</strong> — потерял весь профит за 2 года. <strong>BitcoinOG</strong> — тот с «100% винрейтом» — слил 270 млн$.</p>
+      <p style="margin:0">Следил бы за их каналами — в 70–80% случаев слил депозит в тот день.</p>
     </div>
-  </div>
+    <div class="photo-ph">
+      <div class="photo-ph-icon">📸</div>
+      <div class="photo-ph-label">Скрин постов Хамахи/Моцарта/Романова 10 октября</div>
+      <div class="photo-ph-file">images/dump-oct10-gurus.jpg</div>
+    </div>
+    <h3>Путь 2: купить альты и ждать альтсезон</h3>
+    <p>Монет стало слишком много. Большинство умирают после листинга или на первой медвежке. Пока ты держишь — часть альтов просто делистят с бирж.</p>
+    <div class="quote">
+      Лучше делать 100–300% годовых на BTC/ETH/SOL и сохранять капитал — чем гнаться за иксами по новым монетам и ловить минус 60–100%.
+      <div class="quote-by">— Шеф</div>
+    </div>
+  </div></div>
 </div>
 
-<!-- SECTION 3 -->
+<!-- S3: 4 СТАДИИ -->
 <div class="section" id="s3">
   <div class="section-head" onclick="toggle('s3')">
     <div class="section-icon">🧭</div>
     <div class="section-title">4 стадии трейдера: где ты сейчас?</div>
-    <svg class="section-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
-  <div class="section-body">
-    <div class="section-inner">
-      <p>Большинство трейдеров проходят один и тот же путь. Найди себя.</p>
-
-      <div class="stages">
-        <div class="stage">
-          <div class="stage-num">0</div>
-          <div>
-            <div class="stage-title">Обнуление</div>
-            <div class="stage-text">Памп-схемы, сигнальные боты, доверительное управление. Итог всегда один. Если уже прошёл — ты не один. Если ещё нет — это может случиться.</div>
-          </div>
-        </div>
-        <div class="stage">
-          <div class="stage-num">1</div>
-          <div>
-            <div class="stage-title">Хаотичный трейдер</div>
-            <div class="stage-text">Подписан на десяток каналов. Иногда плюс, чаще минус. Нет системы — есть набор чужих мнений. Три года такой торговли дадут доходность на уровне депозита при огромном количестве нервов.</div>
-          </div>
-        </div>
-        <div class="stage">
-          <div class="stage-num">2</div>
-          <div>
-            <div class="stage-title">Есть торговля — нет стратегии</div>
-            <div class="stage-text">Уже понимает рынок, иногда делает хорошие сделки. Но нет фильтра: когда входить, когда сидеть на заборе. Один месяц плюс, два месяца минус.</div>
-          </div>
-        </div>
-        <div class="stage active">
-          <div class="stage-num">3</div>
-          <div>
-            <div class="stage-title">Система работает</div>
-            <div class="stage-text">1–3 точных сделки в месяц. 15 минут в день. Умеет не торговать, когда рынок хочет наказать. Именно это — не участвовать в ликвидациях — и есть главный результат.</div>
-          </div>
+  <div class="section-body"><div class="section-inner">
+    <p>Большинство трейдеров проходят один и тот же путь. Найди себя.</p>
+    <div class="stages">
+      <div class="stage">
+        <div class="stage-num">0</div>
+        <div>
+          <div class="stage-title">Обнуление</div>
+          <div class="stage-text">Памп-схемы, сигнальные боты, доверительное управление. Итог всегда один. Если уже прошёл — ты не один. Если ещё нет — это может случиться.</div>
         </div>
       </div>
-
-      <div class="box box-blue">
-        <div class="box-head">💡 Главный вывод</div>
-        <p style="margin:0">Деньги делаются качеством сделок, а не их количеством. Снайпер делает один точный выстрел. Пулемётчик стреляет от страха и суеты. В трейдинге зарабатывает снайпер.</p>
+      <div class="stage">
+        <div class="stage-num">1</div>
+        <div>
+          <div class="stage-title">Хаотичный трейдер</div>
+          <div class="stage-text">Подписан на десяток каналов. Иногда плюс, чаще минус. Нет системы — есть набор чужих мнений. Три года такой торговли: доходность на уровне депозита и огромное количество нервов.</div>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-num">2</div>
+        <div>
+          <div class="stage-title">Есть торговля — нет стратегии</div>
+          <div class="stage-text">Понимает рынок, иногда хорошие сделки. Но нет фильтра: когда входить, когда сидеть на заборе. Один месяц плюс, два минус.</div>
+        </div>
+      </div>
+      <div class="stage active">
+        <div class="stage-num">3</div>
+        <div>
+          <div class="stage-title">★ Система работает</div>
+          <div class="stage-text">1–3 точных сделки в месяц. 15 минут в день. Умеет не торговать когда рынок хочет наказать. Это и есть главный результат.</div>
+        </div>
       </div>
     </div>
-  </div>
+    <div class="box box-info">
+      <div class="box-head">💡 Главный вывод</div>
+      <p style="margin:0">Деньги делаются качеством сделок, а не их количеством. Снайпер делает один точный выстрел. Пулемётчик стреляет от страха и суеты. В трейдинге зарабатывает снайпер.</p>
+    </div>
+  </div></div>
 </div>
 
-<!-- SECTION 4 -->
+<!-- S4: КАК РАБОТАЕТ СИСТЕМА -->
 <div class="section" id="s4">
   <div class="section-head" onclick="toggle('s4')">
-    <div class="section-icon">📖</div>
-    <div class="section-title">Как мы сами к этому пришли</div>
-    <svg class="section-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-  </div>
-  <div class="section-body">
-    <div class="section-inner">
-      <h3>Фаза 1 — Были такими же</h3>
-      <p>Несколько лет сам опирался на чужие источники. Казалось логичным: больше источников — лучше решения. Покупали приватки сотнями, тратили на это <strong>$150 000 в год</strong>. Знаем эту кухню изнутри лучше большинства её участников.</p>
-
-      <h3>Фаза 2 — Момент перелома</h3>
-      <p>К 2026 году стало очевидно: никто из тех, за кем следили, не торгует по принципам ленивого трейдинга. Кругом либо скам, либо инфоцыгане — люди, которые зарабатывают не на рынке, а на продаже информации о рынке.</p>
-
-      <div class="box box-red">
-        <div class="box-head">⚡ Жёсткий вывод</div>
-        <p style="margin:0">Пока ты следишь за гуру — ты часть их бизнес-модели. Твои деньги на приватки, твои переходы по рефералкам — это их доход. Слепо следуя «лучшим» источникам — торговал как толпа. А толпа — это топливо для рынка.</p>
-      </div>
-
-      <h3>Фаза 3 — Как стало</h3>
-      <p>Начали фильтровать через собственную систему вместо слепого копирования. Количество сделок упало — результат вырос.</p>
-      <p>Сегодня: 1–3 точных сделки в месяц, 15 минут в день. <strong>Ни в одном крупном дампе за последние 2 года — депозит не потерян.</strong></p>
-
-      <div class="quote">
-        Умение не торговать — такая же часть системы, как вход и выход. Сидеть на заборе, когда рынок хочет тебя наказать — это тоже навык.
-        <div class="quote-by">— Шеф</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SECTION 5 -->
-<div class="section" id="s5">
-  <div class="section-head" onclick="toggle('s5')">
     <div class="section-icon">⚙️</div>
     <div class="section-title">Как работает система ленивого трейдинга</div>
-    <svg class="section-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
-  <div class="section-body">
-    <div class="section-inner">
-      <p>Система держится на трёх элементах. Каждый необходим.</p>
+  <div class="section-body"><div class="section-inner">
+    <p>Система держится на трёх элементах. Убери любой — и она не работает.</p>
 
-      <h3>1. Умные деньги</h3>
-      <p>Не прогнозы из Telegram — логика движения реального капитала на графике. Рынок всегда идёт от ликвидности к ликвидности: в стопы, ликвидации и ошибки толпы. Пока толпа читает гуру — умные деньги знают где стоят их стопы и используют это.</p>
+    <h3>1. Умные деньги</h3>
+    <p>Не прогнозы из Telegram — логика движения реального капитала на графике. Рынок всегда идёт от ликвидности к ликвидности: в стопы, ликвидации и ошибки толпы. Пока толпа читает гуру — умные деньги знают где стоят их стопы и используют это.</p>
 
-      <h3>2. Три вопроса перед каждой сделкой</h3>
-      <div class="box box-blue">
-        <div class="box-head">✓ Чеклист входа</div>
-        <ol style="margin:0; padding-left:18px">
-          <li>Это совпадает с логикой умных денег?</li>
-          <li>Соотношение потенциала роста к риску — минимум 3:1?</li>
-          <li>Могу объяснить себе почему вхожу именно здесь?</li>
-        </ol>
-        <p style="margin-top:10px;margin-bottom:0;font-size:14px;color:var(--muted)">Хотя бы на один вопрос ответ «не знаю» — сделку не берём. Без исключений.</p>
-      </div>
-
-      <h3>3. Дисциплина ожидания</h3>
-      <p>Большинство теряют не потому что берут плохие сделки — а потому что берут лишние. Рынок цикличен. Правильный момент приходит регулярно. Задача — ждать его, а не создавать иллюзию активности.</p>
-
-      <h3>Математика работает на тебя</h3>
-      <p>Даже с маленьким депозитом при регулярности система приносит результат:</p>
-
-      <table class="math-table">
-        <tr><th>Месяц</th><th>Баланс (5%/мес)</th><th>Баланс (10%/мес)</th></tr>
-        <tr><td>1</td><td>368 $</td><td>385 $</td></tr>
-        <tr><td>6</td><td>761 $</td><td>956 $</td></tr>
-        <tr class="highlight"><td>12</td><td>≈ 1 360 $</td><td>≈ 2 120 $</td></tr>
-        <tr class="highlight"><td>36</td><td>≈ 3 900 $</td><td>≈ 9 000 $</td></tr>
-      </table>
-      <p style="font-size:13px;color:var(--muted)">Старт: 300$ · Пополнение: +50$/мес · Без лудки, без иксов — только система и сложный процент.</p>
-
-      <div class="quote">
-        Сначала ты работаешь на депозит. Потом депозит начинает работать на тебя.
-        <div class="quote-by">— принцип сложного процента</div>
-      </div>
+    <h3>2. Три вопроса перед каждой сделкой</h3>
+    <div class="box box-info">
+      <div class="box-head">✓ Чеклист входа</div>
+      <ol style="margin:0;padding-left:18px">
+        <li>Это совпадает с логикой умных денег?</li>
+        <li>Соотношение потенциала к риску — минимум 3:1?</li>
+        <li>Могу объяснить себе почему вхожу именно здесь?</li>
+      </ol>
+      <p style="margin-top:10px;margin-bottom:0;font-size:13px;color:var(--muted)">Хотя бы на один ответ «не знаю» — сделку не берём. Без исключений.</p>
     </div>
-  </div>
+
+    <h3>3. Дисциплина ожидания</h3>
+    <p>Большинство теряют не потому что берут плохие сделки — а потому что берут лишние. Умение не торговать — такая же часть системы, как вход и выход.</p>
+
+    <h3>Математика работает на тебя</h3>
+    <p>Депозит 300$ + 50$/мес — без иксов, без лудки:</p>
+    <table class="math-table">
+      <tr><th>Месяц</th><th>Баланс (5%/мес)</th><th>Баланс (10%/мес)</th></tr>
+      <tr><td>1</td><td>368 $</td><td>385 $</td></tr>
+      <tr><td>6</td><td>761 $</td><td>956 $</td></tr>
+      <tr class="hl"><td>12</td><td>≈ 1 360 $</td><td>≈ 2 120 $</td></tr>
+      <tr class="hl"><td>36</td><td>≈ 3 900 $</td><td>≈ 9 000 $</td></tr>
+    </table>
+    <div class="quote">Сначала ты работаешь на депозит. Потом депозит начинает работать на тебя.</div>
+  </div></div>
 </div>
 
-<!-- SECTION 6 -->
-<div class="section" id="s6">
-  <div class="section-head" onclick="toggle('s6')">
+<!-- S5: 3 ОШИБКИ -->
+<div class="section" id="s5">
+  <div class="section-head" onclick="toggle('s5')">
     <div class="section-icon">⚠️</div>
     <div class="section-title">3 ошибки которые убивают депозит</div>
-    <svg class="section-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
-  <div class="section-body">
-    <div class="section-inner">
-      <div class="mistake">
-        <div class="mistake-bad">Прыгать за сигналами разных трейдеров</div>
-        <div class="mistake-good">Один фильтр, своя логика, один источник — и фильтруй через собственную стратегию</div>
-      </div>
-      <div class="mistake">
-        <div class="mistake-bad">Мешок альтов в ожидании альтсезона</div>
-        <div class="mistake-good">Голубые фишки BTC/ETH/SOL — реальная ликвидность, пережили несколько циклов</div>
-      </div>
-      <div class="mistake">
-        <div class="mistake-bad">Психологические ловушки: FOMO, revenge trading, тильт</div>
-        <div class="mistake-good">Чёткий алгоритм входа и выхода убирает эмоции — когда есть правило, нет места тильту</div>
-      </div>
-
-      <div class="box box-gold">
-        <div class="box-head">⚡ Важно про фиксацию прибыли</div>
-        <p style="margin:0">Фиксируй лесенкой: треть позиции на +15%, треть на +30%, остаток на точке выхода. Это убирает главную ловушку — «жалко продавать, вдруг вырастет ещё».</p>
-      </div>
-    </div>
-  </div>
+  <div class="section-body"><div class="section-inner">
+    <div class="mistake"><div class="mistake-bad">Прыгать за сигналами разных трейдеров</div><div class="mistake-good">Один фильтр, своя логика — следи только за тем, у кого есть система, и накладывай на свою стратегию</div></div>
+    <div class="mistake"><div class="mistake-bad">Мешок альтов в ожидании альтсезона</div><div class="mistake-good">Голубые фишки BTC/ETH/SOL — реальная ликвидность, пережили несколько циклов, признаны институционалами</div></div>
+    <div class="mistake"><div class="mistake-bad">Кросс-маржа и психологические ловушки: FOMO, revenge trading, тильт</div><div class="mistake-good">Чёткий алгоритм входа и выхода убирает эмоции — когда есть правило, нет места тильту. Фиксируй лесенкой: треть на +15%, треть на +30%, остаток на точке выхода</div></div>
+  </div></div>
 </div>
 
-<!-- MID CTA — после ошибок -->
+<!-- MID CTA -->
 <div class="mid-cta">
-  <div class="mid-cta-title">Узнай себя в этих ошибках?</div>
-  <p class="mid-cta-sub">Заполни короткую анкету — разберём твою ситуацию и скажем с чего начать прямо сейчас</p>
+  <div class="mid-cta-title">Узнал себя? Разберём твою ситуацию лично</div>
+  <p class="mid-cta-sub">Заполни короткую анкету — посмотрю что у тебя происходит и скажу с чего начать прямо сейчас</p>
   <a href="https://t.me/ask_piratovich_bot?start=If2PdDeN60o" target="_blank" class="btn-primary">📋 Заполнить анкету</a>
 </div>
 
-<!-- SECTION 7 -->
+<!-- ════════════════════════════════════════
+     ЧАСТЬ 2 — АЛЬЯНС
+═════════════════════════════════════════ -->
+<div class="part-label">
+  <div class="part-label-line"></div>
+  <div class="part-label-text">Часть 2 — Альянс</div>
+  <div class="part-label-line"></div>
+</div>
+
+<!-- S6: УЗНАЙ СЕБЯ -->
+<div class="section" id="s6">
+  <div class="section-head" onclick="toggle('s6')">
+    <div class="section-icon">🪞</div>
+    <div class="section-title">Узнай себя в одной из этих ситуаций</div>
+    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+  <div class="section-body"><div class="section-inner">
+    <div class="portraits">
+      <div class="portrait">
+        <div class="portrait-title">«Торгую, но сливаю»</div>
+        <p class="portrait-text">Ты в крипте уже какое-то время. Пробовал фьючи — тебя ликвидовало. Был портфель $30 000, стало $4 000. Следишь за аналитиками из Telegram, иногда заходишь по их сигналам — в итоге ещё глубже в минус. Понимаешь что делаешь что-то не так, но не понимаешь что именно.</p>
+      </div>
+      <div class="portrait">
+        <div class="portrait-title">«Купил, жду когда отрастёт»</div>
+        <p class="portrait-text">Закупился в хайп — говорили что будут иксы. Сейчас сидишь в минус 70–90% и ждёшь. Уже несколько лет ждёшь. Половину монет уже делистили с бирж. Продавать страшно — вдруг отрастёт именно тогда, когда продашь.</p>
+      </div>
+      <div class="portrait">
+        <div class="portrait-title">«Хочу зайти, но страшно»</div>
+        <p class="portrait-text">Видишь как люди зарабатывают. Но вокруг слишком много историй про людей которых ликвидовало, которые потеряли всё. Не знаешь кому верить — у всех красивые скрины, а реальных результатов на дистанции никто не показывает.</p>
+      </div>
+    </div>
+    <div class="box box-dark">
+      <div class="box-head">⚡ В чём настоящая проблема</div>
+      <p style="margin:0">Не в рынке. Не в монетах. Слишком много информации — и ноль структуры, которая превращает её в результат.</p>
+    </div>
+    <div class="photo-ph">
+      <div class="photo-ph-icon">📸</div>
+      <div class="photo-ph-label">Скрин переписки — «был портфель $100k, осталось $6k»</div>
+      <div class="photo-ph-file">images/pain-portfolio-loss.jpg</div>
+    </div>
+  </div></div>
+</div>
+
+<!-- S7: КТО ТАКОЙ ШЕФ -->
 <div class="section" id="s7">
   <div class="section-head" onclick="toggle('s7')">
-    <div class="section-icon">📊</div>
-    <div class="section-title">Реальный кейс: как это работает на практике</div>
-    <svg class="section-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    <div class="section-icon">👤</div>
+    <div class="section-title">Кто такой Шеф и почему ему можно доверять</div>
+    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
-  <div class="section-body">
-    <div class="section-inner">
-      <p>Алекс зашёл в Альянс без понимания как вообще стабильно зарабатывать на крипте. До этого — сливал всё подряд, следил за несколькими каналами, результат нестабильный.</p>
-
-      <h3>Три шага которые изменили ситуацию</h3>
-      <ol>
-        <li><strong>Перешёл на спот</strong> — без плечей и лишнего риска. Спекулятивно покупать и продавать, не сидеть в позиции долго.</li>
-        <li><strong>Заходил только по подсвеченным идеям</strong> — не придумывал сделки самому, не угадывал рынок.</li>
-        <li><strong>Фокус на ликвидных монетах</strong> — BTC, ETH, SOL. Никаких сомнительных щитков.</li>
-      </ol>
-
-      <div class="box box-green">
-        <div class="box-head">✓ Результат</div>
-        <p style="margin:0">Сделки начали стабильно приносить по +30% в неделю. Не потому что рынок стал лучше — потому что он перестал торговать эмоциями.</p>
-      </div>
-
-      <h3>Нет своего капитала?</h3>
-      <p>Путь через пропы: покупаешь аккаунт на сумму от 5 000 до 100 000$, торгуешь по системе, прибыль делится <strong>80% тебе / 20% пропу</strong>. Участники Альянса проходят фазы и получают стабильные выплаты.</p>
+  <div class="section-body"><div class="section-inner">
+    <p>Меня зовут Шеф. Больше 7 лет в крипте. Через мои продукты прошло больше 3 000 человек.</p>
+    <p>Начинал как все — пробовал торговать сам, набивал шишки, терял деньги. Потом начал изучать чужие подходы системно: выкупал десятки платных каналов и закрытых клубов. Это стоило сотни тысяч долларов и несколько лет наблюдений.</p>
+    <div class="photo-ph">
+      <div class="photo-ph-icon">📸</div>
+      <div class="photo-ph-label">Скрин таблицы с купленными приватками (имена замазаны)</div>
+      <div class="photo-ph-file">images/shef-privatki-list.jpg</div>
     </div>
-  </div>
+    <p>Стало понятно одно: большинство людей которые что-то продают на этом рынке зарабатывают не на торговле — они зарабатывают на тебе. На приватках, рефералках, рекламе бирж.</p>
+    <p>На основе этого сложилась собственная система — своя торговая стратегия, свой подход к управлению депозитом, своя команда аналитиков.</p>
+    <div class="photo-row">
+      <div class="photo-ph" style="margin:0">
+        <div class="photo-ph-icon">📸</div>
+        <div class="photo-ph-label">Скрин дашборда / статистики</div>
+        <div class="photo-ph-file">images/shef-dashboard.jpg</div>
+      </div>
+      <div class="photo-ph" style="margin:0">
+        <div class="photo-ph-icon">📸</div>
+        <div class="photo-ph-label">Скрин поста — предсказание дампа с датой</div>
+        <div class="photo-ph-file">images/shef-prediction-post.jpg</div>
+      </div>
+    </div>
+    <div class="quote">
+      Каждый значимый дамп последних полутора лет был предсказан заранее в моих каналах. Участники Альянса не участвовали в крупных ликвидациях — потому что выходили из позиций когда я предупреждал. Это не везение — это система.
+      <div class="quote-by">— Шеф</div>
+    </div>
+  </div></div>
 </div>
 
-<!-- SECTION 8 -->
+<!-- S8: ЧЕТЫРЕ ПУТИ -->
 <div class="section" id="s8">
   <div class="section-head" onclick="toggle('s8')">
+    <div class="section-icon">🔀</div>
+    <div class="section-title">У тебя есть несколько вариантов</div>
+    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+  <div class="section-body"><div class="section-inner">
+    <div class="paths">
+      <div class="path danger">
+        <div class="path-num">0</div>
+        <div>
+          <div class="path-title">Продолжать как сейчас</div>
+          <p class="path-text">Скитаться по бесплатным каналам, доверять людям без репутации и без реальных результатов, прыгать от сигнала к сигналу. Красивые скрины, обещания иксов — и ноль ответственности. В итоге снова потери и снова поиск «того самого» канала.</p>
+        </div>
+      </div>
+      <div class="path">
+        <div class="path-num">1</div>
+        <div>
+          <div class="path-title">Основной канал</div>
+          <p class="path-text">Подписываешься на бесплатный канал, читаешь посты, иногда заходишь в сделки которые я подсвечиваю. Бесплатно, но медленно. Нет детальных разборов, нет сопровождения, нет личного общения.</p>
+        </div>
+      </div>
+      <div class="path featured">
+        <div class="path-num">2</div>
+        <div>
+          <div class="path-title">Альянс <span class="path-badge">Рекомендую</span></div>
+          <p class="path-text">Закрытая экосистема со всеми инструментами для системного результата. Обучение под твой уровень, сигналы с полной логикой, экспертный контент, живое комьюнити, регулярные созвоны. Оптимальное соотношение глубины, доступа и стоимости.</p>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</div>
+
+<!-- S9: ЧТО ВНУТРИ АЛЬЯНСА -->
+<div class="section" id="s9">
+  <div class="section-head" onclick="toggle('s9')">
     <div class="section-icon">🏰</div>
-    <div class="section-title">Что такое Альянс</div>
-    <svg class="section-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    <div class="section-title">Что внутри Альянса</div>
+    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
-  <div class="section-body">
-    <div class="section-inner">
-      <p>Альянс — не канал с сигналами и не курс по трейдингу. Закрытая экосистема, где всё работает вместе.</p>
-
-      <div class="alliance-grid">
-        <div class="alliance-card">
-          <div class="alliance-card-icon">📚</div>
-          <div class="alliance-card-title">Торговая система</div>
-          <div class="alliance-card-text">Три уровня: с нуля / стратегии и фильтрация / продвинутый. Конкретный маршрут под твой уровень.</div>
-        </div>
-        <div class="alliance-card">
-          <div class="alliance-card-icon">🎯</div>
-          <div class="alliance-card-title">Сигналы с логикой</div>
-          <div class="alliance-card-text">Не «купи X», а почему этот актив, точка входа, размер позиции, что делать если рынок пойдёт против.</div>
-        </div>
-        <div class="alliance-card">
-          <div class="alliance-card-icon">💡</div>
-          <div class="alliance-card-title">Подсвеченные идеи</div>
-          <div class="alliance-card-text">Только то что прошло через фильтр системы. Нет случайных входов, нет эмоций.</div>
-        </div>
-        <div class="alliance-card">
-          <div class="alliance-card-icon">👥</div>
-          <div class="alliance-card-title">Комьюнити 700+</div>
-          <div class="alliance-card-text">Люди которые реально в теме. Открытый обмен опытом — не хвастовство, а то что работает.</div>
-        </div>
+  <div class="section-body"><div class="section-inner">
+    <div class="opory">
+      <div class="opora">
+        <div class="opora-num">Онбординг</div>
+        <div class="opora-title">С первой минуты понятно что делать</div>
+        <p class="opora-text">Ты не остаёшься один перед огромным количеством материала без понимания с чего начать. Онбординг проведёт по шагам в зависимости от твоего уровня — и в первые 15 минут ты уже внутри системы.</p>
       </div>
-
-      <div class="box box-blue">
-        <div class="box-head">💡 Ключевое обещание</div>
-        <p style="margin:0">Окупается на дистанции 1–3 месяцев при должном включении. Это не волшебная таблетка — думать всё равно нужно. Но думать станет в разы проще.</p>
+      <div class="opora">
+        <div class="opora-num">Опора 1</div>
+        <div class="opora-title">Торговая система</div>
+        <p class="opora-text">Адаптируется под твой уровень. Только начинаешь — практическая база и блок «как не потерять деньги». Уже торгуешь — стратегии и фильтрация сделок. Есть стабильный результат — продвинутый блок: смартмани, объёмы, сложные инструменты. К системе прилагается индикатор шефа, методичка по управлению рисками, разборы рынка на зумах.</p>
       </div>
-
-      <div class="quote">
-        В худшем случае ты просто посмотришь изнутри на систему которую мы строили 8 лет. Так что в минусе ты остаться физически не можешь.
-        <div class="quote-by">— Шеф</div>
+      <div class="opora">
+        <div class="opora-num">Опора 2</div>
+        <div class="opora-title">Сигналы шефа</div>
+        <p class="opora-text">Каждый сигнал — полный цикл мышления: почему этот актив, на каком уровне входить, какой размер позиции. Плюс сопровождение и разбор после закрытия. И главное — предупреждения о дампах заранее. Каждое серьёзное падение последних полутора лет было предсказано до того как произошло.</p>
+      </div>
+      <div class="opora">
+        <div class="opora-num">Опора 3</div>
+        <div class="opora-title">Экспертный контент</div>
+        <p class="opora-text">Макро-разборы событий и их влияние на крипту. Разборы реальных ошибок участников. Анализ прогнозов других аналитиков — почему ошиблись. Посты в формате «как я думаю когда отбираю сделку». Это то что превращает тебя из человека который копирует — в человека который понимает.</p>
+      </div>
+      <div class="opora">
+        <div class="opora-num">Опора 4</div>
+        <div class="opora-title">Комьюнити и созвоны</div>
+        <p class="opora-text">Люди открыто делятся опытом и наработками — не хвастаются скринами, а обмениваются тем что реально работает. Раз в две недели — закрытые созвоны с разбором ситуаций участников. Раз в месяц — публичные созвоны. Лестница роста — от публикации сделок до ветки Звёзд Альянса (макс. 5 человек) и возможного ханта в команду.</p>
       </div>
     </div>
-  </div>
+    <div class="photo-row">
+      <div class="photo-ph" style="margin:0">
+        <div class="photo-ph-icon">📸</div>
+        <div class="photo-ph-label">Скрин интерфейса / онбординга Альянса</div>
+        <div class="photo-ph-file">images/alliance-onboarding.jpg</div>
+      </div>
+      <div class="photo-ph" style="margin:0">
+        <div class="photo-ph-icon">📸</div>
+        <div class="photo-ph-label">Скрин сигнала с логикой входа</div>
+        <div class="photo-ph-file">images/alliance-signal.jpg</div>
+      </div>
+    </div>
+  </div></div>
 </div>
 
-<!-- CHECKLIST -->
-<div class="checklist">
-  <div class="checklist-title">🚀 Чеклист внедрения</div>
-  <div class="checklist-sub">Отмечай выполненные пункты — прогресс сохраняется</div>
-
-  <div class="chk-group">Прямо сейчас</div>
-  <div class="chk-item" onclick="check(this)">
-    <div class="chk-box"></div>
-    <div class="chk-text">
-      <strong>Определи свою стадию (0–3)</strong>
-      <span>Честно ответь: ты хаотичный трейдер, есть торговля без стратегии, или система уже работает?</span>
-    </div>
+<!-- S10: ЧЕМ ОТЛИЧАЕТСЯ -->
+<div class="section" id="s10">
+  <div class="section-head" onclick="toggle('s10')">
+    <div class="section-icon">⚡</div>
+    <div class="section-title">Чем Альянс отличается от всего остального</div>
+    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
-  <div class="chk-item" onclick="check(this)">
-    <div class="chk-box"></div>
-    <div class="chk-text">
-      <strong>Останови кросс-маржу</strong>
-      <span>Если торгуешь в кросс-марже — это первое что нужно изменить прямо сейчас.</span>
+  <div class="section-body"><div class="section-inner">
+    <p>Большинство крипто-продуктов делают одно из трёх:</p>
+    <table class="diff">
+      <tr><th>Что они делают</th><th>Чем это заканчивается</th></tr>
+      <tr><td class="bad">Дают сигналы без объяснений</td><td>Ты копируешь вслепую. Работает пока рынок растёт — сливает когда падает.</td></tr>
+      <tr><td class="bad">Продают обучение без практики</td><td>Выходишь с теорией, но без навыка работы на реальном рынке.</td></tr>
+      <tr><td class="bad">Создают комьюнити без экспертизы</td><td>Люди обсуждают рынок не понимая что происходит.</td></tr>
+    </table>
+    <p>Альянс делает всё четыре сразу. И добавляет пятый элемент которого нет нигде — <strong>фильтр шефа</strong>. Я беру на себя задачу выбирать лучшее из рынка и подавать с собственной логикой. Ты не тонешь в десятках источников — получаешь концентрат, проверенный человеком который много лет в рынке.</p>
+    <div class="box box-light">
+      <div class="box-head">⚡ И когда рынок плохой</div>
+      <p style="margin:0">Большинство каналов замолкают когда падает. Альянс работает в любой фазе — потому что у системы есть инструменты под разную рыночную обстановку, а не один подход который работает только когда всё растёт.</p>
     </div>
-  </div>
-  <div class="chk-item" onclick="check(this)">
-    <div class="chk-box"></div>
-    <div class="chk-text">
-      <strong>Сократи источники до одного</strong>
-      <span>Если следишь за 5+ сигнальными каналами — выбери один которому доверяешь, остальные отключи.</span>
-    </div>
-  </div>
-
-  <div class="chk-group">На этой неделе</div>
-  <div class="chk-item" onclick="check(this)">
-    <div class="chk-box"></div>
-    <div class="chk-text">
-      <strong>Задай себе 3 вопроса перед следующей сделкой</strong>
-      <span>Умные деньги? Соотношение 3:1? Могу объяснить вход? Хотя бы один «не знаю» — пропускаем.</span>
-    </div>
-  </div>
-  <div class="chk-item" onclick="check(this)">
-    <div class="chk-box"></div>
-    <div class="chk-text">
-      <strong>Проанализируй последний месяц торговли</strong>
-      <span>Сколько сделок было «по системе», сколько «по ощущению»? Честный разбор даёт больше чем любой курс.</span>
-    </div>
-  </div>
-  <div class="chk-item" onclick="check(this)">
-    <div class="chk-box"></div>
-    <div class="chk-text">
-      <strong>Убери из портфеля то что не можешь объяснить</strong>
-      <span>Если не можешь ответить на вопрос «зачем я это держу» — скорее всего держать не стоит.</span>
-    </div>
-  </div>
-
-  <div class="chk-group">В течение месяца</div>
-  <div class="chk-item" onclick="check(this)">
-    <div class="chk-box"></div>
-    <div class="chk-text">
-      <strong>Выработай правило фиксации прибыли</strong>
-      <span>Треть на +15%, треть на +30%, остаток на точке выхода. Запиши и следуй без исключений.</span>
-    </div>
-  </div>
-  <div class="chk-item" onclick="check(this)">
-    <div class="chk-box"></div>
-    <div class="chk-text">
-      <strong>Реши: строишь систему сам или встраиваешься в готовую</strong>
-      <span>Оба пути работают. Первый — долго, дорого, через боль. Второй — быстрее, если есть готовая система.</span>
-    </div>
-  </div>
-  <div class="chk-item" onclick="check(this)">
-    <div class="chk-box"></div>
-    <div class="chk-text">
-      <strong><a href="https://t.me/ask_piratovich_bot?start=If2PdDeN60o" target="_blank" style="color:var(--accent);text-decoration:none;">→ Заполнить анкету</a></strong>
-      <span>Разберём твою ситуацию лично — что делать прямо сейчас, куда двигаться.</span>
-    </div>
-  </div>
-
-  <div class="progress-wrap">
-    <div class="progress-top">
-      <span>Прогресс</span>
-      <span id="pct">0 / 9</span>
-    </div>
-    <div class="progress-bar-bg">
-      <div class="progress-bar" id="pbar"></div>
-    </div>
-  </div>
+  </div></div>
 </div>
 
-<!-- CTA -->
-<div class="cta">
-  <div class="cta-label">Следующий шаг</div>
-  <div class="cta-title">Разберём твою ситуацию лично</div>
-  <p class="cta-sub">Заполни короткую анкету — я посмотрю на твою ситуацию и дам обратную связь: что делать прямо сейчас, есть ли смысл в Альянс, куда двигаться. Это не продающий звонок — быстрый разбор.</p>
+<!-- S11: ОКУПАЕМОСТЬ + КЕЙСЫ -->
+<div class="section" id="s11">
+  <div class="section-head" onclick="toggle('s11')">
+    <div class="section-icon">📈</div>
+    <div class="section-title">Окупаемость и реальные истории участников</div>
+    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+  <div class="section-body"><div class="section-inner">
+    <div class="box box-info">
+      <div class="box-head">💡 Главное про окупаемость</div>
+      <p style="margin:0">При капитале от 100 000 ₽ продукт окупается на дистанции 1–3 месяцев при должном включении. Это не обещание иксов — это реальная динамика участников которые применяют систему.</p>
+    </div>
+    <div class="stories">
+      <div class="story">
+        <div class="story-title">🔄 От хаоса к системе</div>
+        <p class="story-text">Участник зашёл после нескольких лет хаотичной торговли. Десятки приваток, постоянные потери, попытки отыграться через высокие плечи. Через три месяца — собственная стратегия, дисциплина по риск-менеджменту, стабильный результат. Главное изменение — не цифры, а голова.</p>
+      </div>
+      <div class="story">
+        <div class="story-title">🛡️ Одно предупреждение окупило всё</div>
+        <p class="story-text">Участник пришёл осенью 2024-го. Когда я опубликовал предупреждение о возможном сливе — он закрыл позиции в небольшой минус. Через несколько дней рынок упал на 30%. Если бы остался — потерял бы половину депозита. Стоимость Альянса окупилась одним этим решением.</p>
+      </div>
+      <div class="story">
+        <div class="story-title">📊 Небольшой депозит — стабильный результат</div>
+        <p class="story-text">Зашёл с небольшим капиталом и чётко следовал системе: только подсвеченные идеи, только спот, только ликвидные монеты. За три месяца — стабильный плюс каждую неделю. Никаких фьючей, никаких плечей — просто работающая система.</p>
+      </div>
+    </div>
+    <div class="photo-row">
+      <div class="photo-ph" style="margin:0">
+        <div class="photo-ph-icon">📸</div>
+        <div class="photo-ph-label">Скрин P&L участника 1</div>
+        <div class="photo-ph-file">images/result-pnl-1.jpg</div>
+      </div>
+      <div class="photo-ph" style="margin:0">
+        <div class="photo-ph-icon">📸</div>
+        <div class="photo-ph-label">Скрин P&L участника 2</div>
+        <div class="photo-ph-file">images/result-pnl-2.jpg</div>
+      </div>
+    </div>
+  </div></div>
+</div>
 
+<!-- S12: ЦЕНА + КАК ПОПАСТЬ -->
+<div class="section" id="s12">
+  <div class="section-head" onclick="toggle('s12')">
+    <div class="section-icon">🚪</div>
+    <div class="section-title">Цена и как попасть</div>
+    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+  <div class="section-body"><div class="section-inner">
+    <h3>Три шага чтобы войти</h3>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title">Заполнить анкету предзаписи</div>
+          <p class="step-text">Короткая анкета на 2 минуты. Расскажи свою ситуацию: опыт, капитал, цели. Это нужно чтобы понять кто ты и подходит ли тебе продукт прямо сейчас.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title">Диагностика в личке</div>
+          <p class="step-text">После анкеты разбираем твою ситуацию, отвечаем на вопросы. Бесплатно, без обязательств. Если Альянс тебе не подходит — прямо скажем. По результатам диагностики возможны индивидуальные условия.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title">Оплата и вход</div>
+          <p class="step-text">Онбординг в первые 15 минут после оплаты. Сразу понятно с чего начать и что делать на первой неделе.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>Сколько это стоит</h3>
+    <p>Посмотри что внутри Альянса: торговая система под твой уровень, сигналы с логикой, экспертный контент, созвоны, комьюнити, лестница роста, личный доступ к эксперту с 7-летним опытом.</p>
+    <p>Сколько бы ты поставил за это если бы не знал цену?</p>
+
+    <div class="price-guesses">
+      <div class="price-guess"><div class="price-guess-val">200 000 ₽</div><div class="price-guess-lbl">думали некоторые</div></div>
+      <div class="price-guess"><div class="price-guess-val">300 000 ₽</div><div class="price-guess-lbl">думали некоторые</div></div>
+      <div class="price-guess"><div class="price-guess-val">500 000 ₽</div><div class="price-guess-lbl">думали некоторые</div></div>
+    </div>
+
+    <div class="price-real">
+      <div class="price-real-label">Реальная цена</div>
+      <div class="price-real-val">50 000 ₽</div>
+      <div class="price-real-sub">за год доступа</div>
+      <div class="price-real-alt">или <strong>70 000 ₽</strong> за два года</div>
+    </div>
+
+    <div class="chat-bubbles">
+      <div class="bubble">
+        <div class="bubble-avatar">👤</div>
+        <div class="bubble-text">Думал будет в разы дороже с таким составом</div>
+      </div>
+      <div class="bubble">
+        <div class="bubble-avatar">👤</div>
+        <div class="bubble-text">50к за год окупается за одну нормальную сделку при капитале от 200к+</div>
+      </div>
+      <div class="bubble right">
+        <div class="bubble-avatar">🎩</div>
+        <div class="bubble-text">Именно поэтому и оставили такую цену. При должном включении окупается за 1–3 месяца.</div>
+      </div>
+    </div>
+
+    <div class="photo-ph">
+      <div class="photo-ph-icon">📸</div>
+      <div class="photo-ph-label">Скрин переписки — реакции участников на цену</div>
+      <div class="photo-ph-file">images/price-reactions.jpg</div>
+    </div>
+
+    <div class="slots-block">
+      <div class="slots-bar-wrap">
+        <div class="slots-bar-label"><span>Занятых мест</span><span>Лимит: 500 участников</span></div>
+        <div class="slots-bar-bg"><div class="slots-bar-fill"></div></div>
+      </div>
+      <div class="slots-text">
+        <span class="slots-num">~310</span>
+        <span style="font-size:12px;color:var(--muted)">участников</span>
+      </div>
+    </div>
+
+    <div class="box box-dark">
+      <div class="box-head">⚡ Важно про капитал</div>
+      <p style="margin:0">Альянс рассчитан на людей с капиталом от 100 000 ₽. Это не граница входа по цене — это граница на которой система начинает давать заметный результат.</p>
+    </div>
+  </div></div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <div class="final-cta-label">Что делать прямо сейчас</div>
+  <div class="final-cta-title">Заполни анкету — разберём твой кейс лично</div>
+  <p class="final-cta-sub">Нажми на кнопку, заполни короткую анкету и напиши в личку. Разберём твою ситуацию и скажем честно — подойдёт ли тебе Альянс прямо сейчас или нет.</p>
+  <p class="final-cta-sub">В худшем случае — получишь бесплатную диагностику от человека который 7 лет в крипте. В лучшем — найдёшь систему которая изменит результаты на дистанции.</p>
   <div class="btn-group">
     <a href="https://t.me/ask_piratovich_bot?start=If2PdDeN60o" target="_blank" class="btn-primary">📋 Заполнить анкету</a>
     <a href="https://t.me/m/u38o2BwrYjAy" target="_blank" class="btn-secondary">💬 Написать в личку</a>
   </div>
-
-  <div class="cta-note">Заполнение анкеты ни к чему не обязывает · Кому-то Альянс вообще не нужен — скажем об этом честно</div>
+  <div class="final-cta-note">Заполнение анкеты ни к чему не обязывает · Если Альянс не подходит — скажем честно</div>
 </div>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">ШЕФ ПИРАТОВИЧ</div>
-  <div class="footer-note" style="margin-bottom:12px;">Система ленивого трейдинга · 2026</div>
-  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-    <a href="https://t.me/piratlinks" target="_blank" style="font-size:13px;color:var(--accent2);text-decoration:none;">📡 Канал</a>
-    <a href="https://t.me/ask_piratovich_bot?start=If2PdDeN60o" target="_blank" style="font-size:13px;color:var(--accent2);text-decoration:none;">📋 Анкета</a>
-    <a href="https://t.me/m/u38o2BwrYjAy" target="_blank" style="font-size:13px;color:var(--accent2);text-decoration:none;">💬 Написать</a>
+  <div class="footer-note">Система ленивого трейдинга · Альянс · 2026</div>
+  <div class="footer-links">
+    <a href="https://t.me/piratlinks" target="_blank">📡 Канал</a>
+    <a href="https://t.me/ask_piratovich_bot?start=If2PdDeN60o" target="_blank">📋 Анкета</a>
+    <a href="https://t.me/m/u38o2BwrYjAy" target="_blank">💬 Написать</a>
   </div>
 </footer>
 
 </div>
-
 <script>
-function toggle(id) {
-  const s = document.getElementById(id);
-  const body = s.querySelector('.section-body');
-  const isOpen = s.classList.contains('open');
+function toggle(id){
+  const s=document.getElementById(id);
+  const b=s.querySelector('.section-body');
+  const open=s.classList.contains('open');
   s.classList.toggle('open');
-  if (!isOpen) {
-    body.style.maxHeight = body.scrollHeight + 'px';
-  } else {
-    body.style.maxHeight = '0';
-  }
+  b.style.maxHeight=open?'0':b.scrollHeight+'px';
 }
-
-function check(el) {
-  el.classList.toggle('done');
-  const total = document.querySelectorAll('.chk-item').length;
-  const done = document.querySelectorAll('.chk-item.done').length;
-  document.getElementById('pct').textContent = done + ' / ' + total;
-  document.getElementById('pbar').style.width = (done / total * 100) + '%';
-}
-
-// Init open sections
-window.addEventListener('load', () => {
-  document.querySelectorAll('.section.open').forEach(s => {
-    const body = s.querySelector('.section-body');
-    body.style.maxHeight = body.scrollHeight + 'px';
+window.addEventListener('load',()=>{
+  document.querySelectorAll('.section.open').forEach(s=>{
+    s.querySelector('.section-body').style.maxHeight=s.querySelector('.section-body').scrollHeight+'px';
   });
 });
 </script>
