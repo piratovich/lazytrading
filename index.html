@@ -24,7 +24,6 @@
 body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; font-size:16px; }
 .container { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
 
-/* ── HERO ── */
 .hero {
   position:relative; padding:56px 40px 48px; border-radius:24px;
   background:linear-gradient(135deg,#0E0B0A 0%,#1A0C07 40%,#0E0B0A 100%);
@@ -40,50 +39,32 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
 .channel-link { display:inline-flex; align-items:center; gap:5px; font-size:13px; color:var(--muted); text-decoration:none; margin-top:16px; }
 .channel-link:hover { color:var(--accent2); }
 
-/* ── BUTTONS ── */
 .btn-primary { display:inline-flex; align-items:center; justify-content:center; gap:8px; background:var(--accent); color:#FAF7F1; font-family:'Unbounded',sans-serif; font-size:14px; font-weight:700; padding:16px 36px; border-radius:14px; text-decoration:none; transition:background .2s,transform .15s; }
 .btn-primary:hover { background:#C9523E; transform:translateY(-2px); }
 .btn-secondary { display:inline-flex; align-items:center; justify-content:center; gap:8px; background:transparent; color:var(--accent2); font-family:'Unbounded',sans-serif; font-size:13px; font-weight:600; padding:13px 28px; border-radius:14px; border:1.5px solid rgba(217,217,217,.3); text-decoration:none; transition:border-color .2s,background .2s,transform .15s; }
 .btn-secondary:hover { border-color:var(--accent2); background:rgba(217,217,217,.06); transform:translateY(-2px); }
 .btn-group { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:24px; }
 
-/* ── PAIN STATS ── */
-.pain-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:24px; }
+.pain-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:36px; }
 .pain-stat { background:var(--surface); border:1px solid var(--border); border-top:2px solid #491604; border-radius:14px; padding:18px 14px; text-align:center; }
 .pain-stat-val { font-family:'Unbounded',sans-serif; font-size:22px; font-weight:900; color:var(--accent); line-height:1; margin-bottom:6px; }
 .pain-stat-lbl { font-size:12px; color:var(--muted); line-height:1.4; }
 
-/* ── HINT ── */
-.accordion-hint { display:flex; align-items:center; justify-content:center; gap:8px; font-size:13px; color:var(--muted); margin-bottom:18px; padding:8px; }
-.hint-arrow { animation:bounce .8s ease-in-out infinite; }
-@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(4px)} }
-
-/* ── PART LABEL ── */
-.part-label { display:flex; align-items:center; gap:12px; margin:36px 0 14px; }
+.part-label { display:flex; align-items:center; gap:14px; margin:56px 0 24px; }
 .part-label-line { flex:1; height:1px; background:var(--border); }
-.part-label-text { font-family:'Unbounded',sans-serif; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); white-space:nowrap; }
+.part-label-text { font-family:'Unbounded',sans-serif; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--accent); white-space:nowrap; }
 
-/* ── ACCORDION ── */
-.section { background:var(--surface); border:1px solid var(--border); border-radius:20px; margin-bottom:10px; overflow:hidden; transition:border-color .2s; }
-.section:hover { border-color:rgba(227,103,80,.4); }
-.section.open { border-color:rgba(227,103,80,.5); }
-.section-head { display:flex; align-items:center; gap:14px; padding:20px 22px; cursor:pointer; user-select:none; transition:background .15s; }
-.section-head:hover { background:rgba(227,103,80,.04); }
-.section-icon { width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; background:linear-gradient(135deg,#491604,#2A0E02); }
-.section-title { font-family:'Unbounded',sans-serif; font-size:14px; font-weight:600; color:var(--white); flex:1; line-height:1.3; }
-.section-arrow { width:20px; height:20px; color:var(--muted); transition:transform .3s ease,color .2s; flex-shrink:0; }
-.section.open .section-arrow { transform:rotate(180deg); color:var(--accent); }
-.section-body { max-height:0; overflow:hidden; transition:max-height .4s ease-out; }
-.section-inner { padding:0 22px 26px; border-top:1px solid var(--border); }
+.block { margin-bottom:40px; }
+.block-head { display:flex; align-items:center; gap:14px; margin-bottom:16px; padding-bottom:14px; border-bottom:1px solid var(--border); }
+.block-icon { width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; background:linear-gradient(135deg,#491604,#2A0E02); }
+.block-title { font-family:'Unbounded',sans-serif; font-size:18px; font-weight:700; color:var(--white); flex:1; line-height:1.25; margin:0; }
 
-/* ── CONTENT ── */
 p { margin-bottom:14px; color:var(--text); }
-h3 { font-family:'Unbounded',sans-serif; font-size:12px; font-weight:700; color:var(--white); margin:22px 0 8px; text-transform:uppercase; letter-spacing:.5px; }
+h3 { font-family:'Unbounded',sans-serif; font-size:13px; font-weight:700; color:var(--white); margin:24px 0 10px; text-transform:uppercase; letter-spacing:.5px; }
 ul,ol { padding-left:20px; margin-bottom:14px; }
 li { margin-bottom:7px; color:var(--text); }
 strong { color:var(--white); font-weight:600; }
 
-/* ── BOXES ── */
 .box { border-radius:14px; padding:18px; margin:18px 0; }
 .box-head { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; margin-bottom:8px; }
 .box-info { background:rgba(227,103,80,.07); border:1px solid rgba(227,103,80,.22); }
@@ -92,21 +73,16 @@ strong { color:var(--white); font-weight:600; }
 .box-dark .box-head { color:var(--accent); }
 .box-light { background:rgba(217,217,217,.05); border:1px solid rgba(217,217,217,.15); }
 .box-light .box-head { color:var(--accent2); }
-.box-success { background:rgba(168,197,160,.08); border:1px solid rgba(168,197,160,.25); }
-.box-success .box-head { color:var(--success); }
 
-/* ── QUOTE ── */
 .quote { border-left:3px solid var(--accent2); padding:10px 0 10px 18px; margin:18px 0; font-style:italic; font-size:16px; color:var(--white); line-height:1.6; }
 .quote-by { font-size:12px; color:var(--muted); font-style:normal; margin-top:4px; }
 
-/* ── PHOTO PLACEHOLDER ── */
 .photo-ph { width:100%; background:var(--surface2); border:1.5px dashed var(--border); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:28px 20px; margin:16px 0; text-align:center; gap:6px; }
 .photo-ph-icon { font-size:28px; opacity:.4; }
 .photo-ph-label { font-size:12px; color:var(--muted); font-weight:600; }
 .photo-ph-file { font-size:11px; color:var(--border); font-family:monospace; background:var(--bg); padding:3px 8px; border-radius:4px; margin-top:4px; }
 .photo-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:16px 0; }
 
-/* ── STAGES ── */
 .stages { display:flex; flex-direction:column; gap:8px; margin:16px 0; }
 .stage { display:flex; gap:14px; padding:16px; background:var(--surface2); border-radius:12px; border:1px solid var(--border); align-items:flex-start; }
 .stage.active { background:linear-gradient(135deg,rgba(73,22,4,.45),rgba(34,10,2,.6)); border-color:rgba(227,103,80,.35); }
@@ -115,27 +91,11 @@ strong { color:var(--white); font-weight:600; }
 .stage-title { font-weight:600; color:var(--white); margin-bottom:4px; font-size:15px; }
 .stage-text { font-size:14px; color:var(--muted); line-height:1.5; }
 
-/* ── MISTAKES ── */
-.mistake { margin-bottom:12px; }
-.mistake-bad { display:flex; align-items:flex-start; gap:10px; padding:13px 16px; background:rgba(73,22,4,.4); border:1px solid rgba(227,103,80,.2); border-radius:10px 10px 0 0; font-size:15px; color:var(--text); }
-.mistake-bad::before { content:'✗'; color:var(--accent); font-weight:700; font-size:16px; flex-shrink:0; padding-top:1px; }
-.mistake-good { display:flex; align-items:flex-start; gap:10px; padding:13px 16px; background:rgba(168,197,160,.07); border:1px solid rgba(168,197,160,.2); border-radius:0 0 10px 10px; font-size:15px; color:var(--text); border-top:none; }
-.mistake-good::before { content:'✓'; color:var(--success); font-weight:700; font-size:16px; flex-shrink:0; padding-top:1px; }
-
-/* ── MATH TABLE ── */
-.math-table { width:100%; border-collapse:collapse; margin:16px 0; font-size:14px; }
-.math-table th { background:linear-gradient(135deg,#491604,#2A0E02); color:var(--accent2); font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:.5px; padding:10px 14px; text-align:left; border:1px solid var(--border); }
-.math-table td { padding:10px 14px; border:1px solid var(--border); color:var(--text); }
-.math-table tr:nth-child(even) td { background:var(--surface2); }
-.math-table tr.hl td { color:var(--accent); font-weight:700; background:rgba(73,22,4,.35); }
-
-/* ── PORTRAITS ── */
 .portraits { display:flex; flex-direction:column; gap:10px; margin:16px 0; }
 .portrait { padding:18px 20px; background:var(--surface2); border:1px solid var(--border); border-left:3px solid #491604; border-radius:0 12px 12px 0; }
 .portrait-title { font-weight:700; color:var(--white); font-size:15px; margin-bottom:8px; }
 .portrait-text { font-size:14px; color:var(--muted); line-height:1.6; margin:0; }
 
-/* ── PATHS ── */
 .paths { display:flex; flex-direction:column; gap:8px; margin:16px 0; }
 .path { display:flex; gap:14px; padding:16px 18px; background:var(--surface2); border:1px solid var(--border); border-radius:12px; }
 .path.danger { border-color:rgba(227,103,80,.2); background:rgba(73,22,4,.25); }
@@ -147,21 +107,18 @@ strong { color:var(--white); font-weight:600; }
 .path-text { font-size:14px; color:var(--muted); line-height:1.5; margin:0; }
 .path-badge { display:inline-block; background:var(--accent); color:#FAF7F1; font-size:10px; font-weight:700; padding:2px 8px; border-radius:100px; text-transform:uppercase; letter-spacing:.5px; margin-left:8px; vertical-align:middle; }
 
-/* ── OPORY ── */
 .opory { display:flex; flex-direction:column; gap:10px; margin:16px 0; }
 .opora { padding:18px 20px; background:var(--surface2); border:1px solid var(--border); border-left:3px solid #E36750; border-radius:0 12px 12px 0; }
 .opora-num { font-family:'Unbounded',sans-serif; font-size:10px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
 .opora-title { font-weight:700; color:var(--white); font-size:15px; margin-bottom:6px; }
 .opora-text { font-size:14px; color:var(--muted); line-height:1.6; margin:0; }
 
-/* ── DIFF TABLE ── */
 .diff { width:100%; border-collapse:collapse; margin:16px 0; font-size:14px; }
 .diff th { padding:10px 14px; text-align:left; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; background:var(--surface2); color:var(--muted); border:1px solid var(--border); }
 .diff td { padding:10px 14px; border:1px solid var(--border); color:var(--text); vertical-align:top; }
 .diff tr:nth-child(even) td { background:rgba(24,18,16,.5); }
 .diff .bad { color:var(--muted); }
 
-/* ── STEPS ── */
 .steps { display:flex; flex-direction:column; margin:16px 0; }
 .step { display:flex; gap:16px; padding:16px 0; border-bottom:1px solid var(--border); align-items:flex-start; }
 .step:last-child { border-bottom:none; }
@@ -169,13 +126,11 @@ strong { color:var(--white); font-weight:600; }
 .step-title { font-weight:600; color:var(--white); font-size:15px; margin-bottom:4px; }
 .step-text { font-size:14px; color:var(--muted); line-height:1.5; }
 
-/* ── STORIES ── */
 .stories { display:flex; flex-direction:column; gap:10px; margin:16px 0; }
 .story { padding:18px 20px; background:var(--surface2); border:1px solid var(--border); border-radius:14px; }
 .story-title { font-weight:700; color:var(--white); font-size:15px; margin-bottom:8px; display:flex; align-items:center; gap:8px; }
 .story-text { font-size:14px; color:var(--muted); line-height:1.6; margin:0; }
 
-/* ── PRICE ANCHOR ── */
 .price-guesses { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:12px; }
 .price-guess { background:var(--surface2); border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center; }
 .price-guess-val { font-family:'Unbounded',sans-serif; font-size:16px; font-weight:700; color:var(--muted); text-decoration:line-through; opacity:.6; }
@@ -187,7 +142,6 @@ strong { color:var(--white); font-weight:600; }
 .price-real-alt { font-size:13px; color:var(--muted); margin-top:10px; }
 .price-real-alt strong { color:var(--accent2); }
 
-/* ── CHAT BUBBLES ── */
 .chat-bubbles { display:flex; flex-direction:column; gap:8px; margin:16px 0; }
 .bubble { display:flex; align-items:flex-end; gap:8px; }
 .bubble.right { flex-direction:row-reverse; }
@@ -195,7 +149,6 @@ strong { color:var(--white); font-weight:600; }
 .bubble-text { max-width:78%; background:var(--surface2); border:1px solid var(--border); border-radius:14px; border-bottom-left-radius:4px; padding:10px 14px; font-size:14px; color:var(--text); line-height:1.5; }
 .bubble.right .bubble-text { border-bottom-left-radius:14px; border-bottom-right-radius:4px; background:rgba(73,22,4,.35); border-color:rgba(227,103,80,.2); }
 
-/* ── SLOTS ── */
 .slots-block { background:var(--surface2); border:1px solid var(--border); border-radius:14px; padding:18px; margin:16px 0; display:flex; align-items:center; gap:16px; }
 .slots-bar-wrap { flex:1; }
 .slots-bar-label { display:flex; justify-content:space-between; font-size:12px; color:var(--muted); margin-bottom:6px; }
@@ -204,19 +157,16 @@ strong { color:var(--white); font-weight:600; }
 .slots-text { font-size:13px; color:var(--muted); flex-shrink:0; text-align:right; }
 .slots-num { font-family:'Unbounded',sans-serif; font-size:18px; font-weight:900; color:var(--accent); display:block; }
 
-/* ── MID CTA ── */
-.mid-cta { background:linear-gradient(135deg,rgba(73,22,4,.3) 0%,rgba(227,103,80,.07) 100%); border:1px solid rgba(227,103,80,.2); border-radius:20px; padding:30px; text-align:center; margin:28px 0; }
+.mid-cta { background:linear-gradient(135deg,rgba(73,22,4,.3) 0%,rgba(227,103,80,.07) 100%); border:1px solid rgba(227,103,80,.2); border-radius:20px; padding:30px; text-align:center; margin:40px 0; }
 .mid-cta-title { font-family:'Unbounded',sans-serif; font-size:16px; font-weight:700; color:var(--white); margin-bottom:8px; }
 .mid-cta-sub { font-size:14px; color:var(--muted); margin-bottom:20px; }
 
-/* ── FINAL CTA ── */
 .final-cta { text-align:center; padding:48px 40px; background:linear-gradient(135deg,rgba(73,22,4,.35) 0%,rgba(227,103,80,.1) 100%); border:1px solid rgba(227,103,80,.3); border-radius:24px; margin-top:32px; }
 .final-cta-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent2); margin-bottom:16px; }
 .final-cta-title { font-family:'Unbounded',sans-serif; font-size:clamp(20px,3.5vw,28px); font-weight:900; color:var(--white); line-height:1.2; margin-bottom:12px; }
 .final-cta-sub { font-size:15px; color:var(--muted); margin-bottom:10px; max-width:480px; margin-left:auto; margin-right:auto; }
 .final-cta-note { font-size:13px; color:var(--muted); margin-top:16px; }
 
-/* ── FOOTER ── */
 footer { text-align:center; padding:36px 0 0; border-top:1px solid var(--border); margin-top:40px; }
 .footer-brand { font-family:'Unbounded',sans-serif; font-size:14px; font-weight:700; background:linear-gradient(90deg,#E36750,#D9D9D9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:8px; }
 .footer-note { font-size:13px; color:var(--muted); margin-bottom:14px; }
@@ -231,538 +181,468 @@ footer { text-align:center; padding:36px 0 0; border-top:1px solid var(--border)
   .price-guesses { grid-template-columns:repeat(3,1fr); }
   .hero { padding:36px 20px 32px; }
   .final-cta { padding:36px 24px; }
-  .section-inner { padding:0 16px 22px; }
-  .section-title { font-size:13px; }
+  .block-title { font-size:16px; }
 }
 </style>
 </head>
 <body>
 <div class="container">
 
-<!-- ══ HERO ══ -->
+<!-- HERO -->
 <header class="hero">
   <div class="hero-badge">⚡ Шеф Пиратович</div>
-  <h1 class="hero-title">Система <span>ленивого трейдинга</span>:<br>+10–30% в месяц без хаоса</h1>
-  <p class="hero-sub">Как зарабатывать на крипте не гоняясь за сигналами, не теряя депозит на каждом дампе и не сидя у монитора круглосуточно</p>
+  <h1 class="hero-title">Система <span>ленивого трейдинга</span>:<br>+10–30% в месяц стабильно</h1>
+  <p class="hero-sub">Как зарабатывать на крипте предсказуемо — без ожидания альтсезона и без слива депозита на каждом дампе</p>
   <a href="https://t.me/piratlinks" target="_blank" class="channel-link">📡 Основной канал @piratlinks</a>
 </header>
 
 <!-- PAIN STATS -->
 <div class="pain-stats">
   <div class="pain-stat">
-    <div class="pain-stat-val">70%</div>
-    <div class="pain-stat-lbl">трейдеров закрывают год в минус</div>
+    <div class="pain-stat-val">90%+</div>
+    <div class="pain-stat-lbl">розничных трейдеров теряют депозит в первые 3 года</div>
   </div>
   <div class="pain-stat">
     <div class="pain-stat-val">99%</div>
     <div class="pain-stat-lbl">альткоинов не переживают медвежку</div>
   </div>
   <div class="pain-stat">
-    <div class="pain-stat-val">−85%</div>
-    <div class="pain-stat-lbl">средняя ликвидация на фьючерсах</div>
+    <div class="pain-stat-val">каждый 3-й</div>
+    <div class="pain-stat-lbl">трейдер теряет всё в первый же год</div>
   </div>
 </div>
 
-<div class="accordion-hint">
-  <span>Нажми на любой раздел чтобы прочитать</span>
-  <svg class="hint-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-</div>
-
-<!-- ════════════════════════════════════════
-     ЧАСТЬ 1 — СИСТЕМА ЛЕНИВОГО ТРЕЙДИНГА
-═════════════════════════════════════════ -->
+<!-- ═══ ЧАСТЬ 1: СИСТЕМА ═══ -->
 <div class="part-label">
   <div class="part-label-line"></div>
   <div class="part-label-text">Часть 1 — Система ленивого трейдинга</div>
   <div class="part-label-line"></div>
 </div>
 
-<!-- S1: РЫНОК ИЗМЕНИЛСЯ -->
-<div class="section open" id="s1">
-  <div class="section-head" onclick="toggle('s1')">
-    <div class="section-icon">🌊</div>
-    <div class="section-title">Рынок изменился — и не в твою пользу</div>
-    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+<!-- B1: РЫНОК ИЗМЕНИЛСЯ -->
+<section class="block">
+  <div class="block-head">
+    <div class="block-icon">🌊</div>
+    <h2 class="block-title">Рынок изменился — и не в твою пользу</h2>
   </div>
-  <div class="section-body"><div class="section-inner">
-    <p>Ещё несколько лет назад можно было торговать хаотично и зарабатывать — бычий рынок прощал всё. Зашёл наугад, поймал рост, почувствовал себя гением. Это закончилось.</p>
-    <p>Сегодня манипуляции точнее. Ликвидации глубже. Инфошум громче. Сотни Telegram-каналов с «аналитикой», тысячи сигналов в день. В этом потоке без системы ты теряешь деньги быстрее, чем раньше.</p>
-    <div class="box box-dark">
-      <div class="box-head">⚡ Неудобная статистика</div>
-      <p style="margin:0">Больше 70% розничных трейдеров закрывают год в минус. Не потому что рынок плохой — а потому что торгуют без логики, без фильтра, без дисциплины.</p>
-    </div>
-    <p>Но у этой статистики есть обратная сторона. Те 30%, которые в плюсе, зарабатывают <strong>на остальных 70%</strong>. Рынок перераспределяет деньги от хаотичных к системным. Всегда. Это не теория — это механика.</p>
-  </div></div>
-</div>
+  <p>Все ждали роста крипты с приходом Трампа. Крипто-президент, биткоин-резерв, дружественная политика. Казалось — вот оно, время делать иксы.</p>
+  <p>Получили обратное. Альткоины падают и не могут нащупать дно. Биткоин ведёт себя как малокапитализированный актив — реагирует на каждый твит. Рынок больше не растёт органично — он тупо выбивает и лонгистов, и шортистов на каждом движении.</p>
+  <div class="box box-dark">
+    <div class="box-head">⚡ Для новичка крипта сейчас — это казино</div>
+    <p style="margin:0">Куда бы ты ни зашёл — в какую позицию, в какую монету — в 90% случаев проиграешь. Не потому что не везёт. Потому что правила игры поменялись, а большинство до сих пор играет по старым.</p>
+  </div>
+  <p>У этой статистики есть обратная сторона. Те 10%, которые в плюсе — зарабатывают <strong>на остальных 90%</strong>. Рынок перераспределяет деньги от тех, для кого это казино и лудомания, к тем, для кого это профессия и торговая система.</p>
+</section>
 
-<!-- S2: ДВЕ ЛОЖНЫЕ СТРАТЕГИИ -->
-<div class="section" id="s2">
-  <div class="section-head" onclick="toggle('s2')">
-    <div class="section-icon">🚫</div>
-    <div class="section-title">Два пути которые гарантированно ведут к сливу</div>
-    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+<!-- B2: ДВА ПУТИ -->
+<section class="block">
+  <div class="block-head">
+    <div class="block-icon">🚫</div>
+    <h2 class="block-title">Два пути которые гарантированно ведут к сливу</h2>
   </div>
-  <div class="section-body"><div class="section-inner">
-    <p>Большинство пробует два пути. Оба приводят к одному результату.</p>
-    <h3>Путь 1: следовать сигналам гуру</h3>
-    <p>Кажется логичным — подписываешься на умных людей, повторяешь. Сделок становится больше, инфошума больше, а результаты только падают. Две причины:</p>
-    <ul>
-      <li><strong>Ты размываешь статистику.</strong> Берёшь минусовые сделки от разных авторов, а плюсовые пропускаешь — дали ночью или когда не было интернета.</li>
-      <li><strong>Инфлы зарабатывают не на рынке.</strong> Их доход — приватки, рефералки, реклама бирж. Твой минус им безразличен.</li>
-    </ul>
-    <div class="box box-dark">
-      <div class="box-head">🔥 Что случилось 10 октября</div>
-      <p>За несколько часов ряд альткоинов упал до нуля. <strong>Хамаха</strong> — лонги на 2 млн$. <strong>Моцарт</strong> — потерял весь профит за 2 года. <strong>BitcoinOG</strong> — тот с «100% винрейтом» — слил 270 млн$.</p>
-      <p style="margin:0">Следил бы за их каналами — в 70–80% случаев слил депозит в тот день.</p>
-    </div>
-    <div class="photo-ph">
-      <div class="photo-ph-icon">📸</div>
-      <div class="photo-ph-label">Скрин постов Хамахи/Моцарта/Романова 10 октября</div>
-      <div class="photo-ph-file">images/dump-oct10-gurus.jpg</div>
-    </div>
-    <h3>Путь 2: купить альты и ждать альтсезон</h3>
-    <p>Монет стало слишком много. Большинство умирают после листинга или на первой медвежке. Пока ты держишь — часть альтов просто делистят с бирж.</p>
-    <div class="quote">
-      Лучше делать 100–300% годовых на BTC/ETH/SOL и сохранять капитал — чем гнаться за иксами по новым монетам и ловить минус 60–100%.
-      <div class="quote-by">— Шеф</div>
-    </div>
-  </div></div>
-</div>
+  <p>Большинство пробует два пути. Оба заканчиваются одинаково.</p>
 
-<!-- S3: 4 СТАДИИ -->
-<div class="section" id="s3">
-  <div class="section-head" onclick="toggle('s3')">
-    <div class="section-icon">🧭</div>
-    <div class="section-title">4 стадии трейдера: где ты сейчас?</div>
-    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  <h3>Путь 1: Следовать сигналам крипто-блогеров</h3>
+  <p>Кажется логичным — подписываешься на умных людей, повторяешь. Сделок становится больше, а результаты только падают. Две причины:</p>
+  <ul>
+    <li><strong>Ты размываешь статистику.</strong> Берёшь минусовые сделки от разных авторов, а плюсовые пропускаешь — дали ночью или когда не было интернета.</li>
+    <li><strong>Крипто-блогеры зарабатывают не на рынке — а на тебе.</strong> Их основной доход: приватки, рефералки, реклама бирж. Твой минус им безразличен.</li>
+  </ul>
+  <div class="box box-dark">
+    <div class="box-head">🔥 Что случилось 10 октября</div>
+    <p>За несколько часов ряд альткоинов упал до нуля. Вот как это пережили крипто-блогеры с сотнями тысяч подписчиков:</p>
+    <p><strong>Хамаха</strong> (YouTube, 400к+) — сидел в лонгах на 2 млн$. <strong>Моцарт</strong> (Telegram, 500к+) — потерял весь профит за 2 года. <strong>Романов</strong> — закупился альтой и ждал V-образного разворота, который не пришёл.</p>
+    <p style="margin:0">Если ты повторял за ними — с большой вероятностью слил депозит в тот день. Или в течение следующего месяца на повторных заходах.</p>
   </div>
-  <div class="section-body"><div class="section-inner">
-    <p>Большинство трейдеров проходят один и тот же путь. Найди себя.</p>
-    <div class="stages">
-      <div class="stage">
-        <div class="stage-num">0</div>
-        <div>
-          <div class="stage-title">Обнуление</div>
-          <div class="stage-text">Памп-схемы, сигнальные боты, доверительное управление. Итог всегда один. Если уже прошёл — ты не один. Если ещё нет — это может случиться.</div>
-        </div>
-      </div>
-      <div class="stage">
-        <div class="stage-num">1</div>
-        <div>
-          <div class="stage-title">Хаотичный трейдер</div>
-          <div class="stage-text">Подписан на десяток каналов. Иногда плюс, чаще минус. Нет системы — есть набор чужих мнений. Три года такой торговли: доходность на уровне депозита и огромное количество нервов.</div>
-        </div>
-      </div>
-      <div class="stage">
-        <div class="stage-num">2</div>
-        <div>
-          <div class="stage-title">Есть торговля — нет стратегии</div>
-          <div class="stage-text">Понимает рынок, иногда хорошие сделки. Но нет фильтра: когда входить, когда сидеть на заборе. Один месяц плюс, два минус.</div>
-        </div>
-      </div>
-      <div class="stage active">
-        <div class="stage-num">3</div>
-        <div>
-          <div class="stage-title">★ Система работает</div>
-          <div class="stage-text">1–3 точных сделки в месяц. 15 минут в день. Умеет не торговать когда рынок хочет наказать. Это и есть главный результат.</div>
-        </div>
+  <div class="photo-ph">
+    <div class="photo-ph-icon">📸</div>
+    <div class="photo-ph-label">Скрин постов Хамахи/Моцарта/Романова 10 октября</div>
+    <div class="photo-ph-file">images/dump-oct10-gurus.jpg</div>
+  </div>
+
+  <h3>Путь 2: Купить альты и ждать альтсезон</h3>
+  <p>Каждый месяц на рынке появляются тысячи новых альткоинов. Суммарно — десятки тысяч. Подумай сам: реально ли все они вырастут так, чтобы отбить твой минус? Очевидно нет.</p>
+  <p>Большинство умирают сразу после листинга или на первой медвежке. Пока ты держишь — часть монет просто удаляют с бирж.</p>
+  <div class="quote">
+    Лучше расти медленно но стабильно на голубых фишках BTC/ETH/SOL — чем гнаться за трендовыми альткоинами и ловить минус 60–100%.
+    <div class="quote-by">— Шеф</div>
+  </div>
+</section>
+
+<!-- B3: 4 СТАДИИ -->
+<section class="block">
+  <div class="block-head">
+    <div class="block-icon">🧭</div>
+    <h2 class="block-title">4 стадии трейдера: где ты сейчас?</h2>
+  </div>
+  <p>Через эти стадии проходит почти каждый. Найди себя.</p>
+  <div class="stages">
+    <div class="stage">
+      <div class="stage-num">0</div>
+      <div>
+        <div class="stage-title">Обнуление</div>
+        <div class="stage-text">Приходят за быстрыми иксами — получают быстрый слив. Pump&amp;dump, сигнальные боты, фьючи с плечом х100, доверительное управление. Итог всегда один — обнуление первого депозита. Через это проходят все. Это плата за вход в рынок где можно зарабатывать тяжёлым путём, а не лёгким.</div>
       </div>
     </div>
-    <div class="box box-info">
-      <div class="box-head">💡 Главный вывод</div>
-      <p style="margin:0">Деньги делаются качеством сделок, а не их количеством. Снайпер делает один точный выстрел. Пулемётчик стреляет от страха и суеты. В трейдинге зарабатывает снайпер.</p>
+    <div class="stage">
+      <div class="stage-num">1</div>
+      <div>
+        <div class="stage-title">Хаотичный трейдер</div>
+        <div class="stage-text">Подписан на десяток каналов. Иногда выходишь в плюс, но большую часть времени депозит в минусе — болтается около нуля или медленно тает. Системы нет, есть набор чужих мнений. Три года такой торговли — куча убитого времени, нервов и сил, которые можно было направить на что-то работающее.</div>
+      </div>
     </div>
-  </div></div>
-</div>
-
-<!-- S4: КАК РАБОТАЕТ СИСТЕМА -->
-<div class="section" id="s4">
-  <div class="section-head" onclick="toggle('s4')">
-    <div class="section-icon">⚙️</div>
-    <div class="section-title">Как работает система ленивого трейдинга</div>
-    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-  </div>
-  <div class="section-body"><div class="section-inner">
-    <p>Система держится на трёх элементах. Убери любой — и она не работает.</p>
-
-    <h3>1. Умные деньги</h3>
-    <p>Не прогнозы из Telegram — логика движения реального капитала на графике. Рынок всегда идёт от ликвидности к ликвидности: в стопы, ликвидации и ошибки толпы. Пока толпа читает гуру — умные деньги знают где стоят их стопы и используют это.</p>
-
-    <h3>2. Три вопроса перед каждой сделкой</h3>
-    <div class="box box-info">
-      <div class="box-head">✓ Чеклист входа</div>
-      <ol style="margin:0;padding-left:18px">
-        <li>Это совпадает с логикой умных денег?</li>
-        <li>Соотношение потенциала к риску — минимум 3:1?</li>
-        <li>Могу объяснить себе почему вхожу именно здесь?</li>
-      </ol>
-      <p style="margin-top:10px;margin-bottom:0;font-size:13px;color:var(--muted)">Хотя бы на один ответ «не знаю» — сделку не берём. Без исключений.</p>
+    <div class="stage">
+      <div class="stage-num">2</div>
+      <div>
+        <div class="stage-title">Есть торговля — нет стратегии</div>
+        <div class="stage-text">Владеешь техническим анализом или другим методом. Торгуешь сам, бывает серия плюсовых сделок. Но одна минусовая сделка перекрывает несколько недель работы. Прибыль не системная — на этот доход нельзя жить.</div>
+      </div>
     </div>
-
-    <h3>3. Дисциплина ожидания</h3>
-    <p>Большинство теряют не потому что берут плохие сделки — а потому что берут лишние. Умение не торговать — такая же часть системы, как вход и выход.</p>
-
-    <h3>Математика работает на тебя</h3>
-    <p>Депозит 300$ + 50$/мес — без иксов, без лудки:</p>
-    <table class="math-table">
-      <tr><th>Месяц</th><th>Баланс (5%/мес)</th><th>Баланс (10%/мес)</th></tr>
-      <tr><td>1</td><td>368 $</td><td>385 $</td></tr>
-      <tr><td>6</td><td>761 $</td><td>956 $</td></tr>
-      <tr class="hl"><td>12</td><td>≈ 1 360 $</td><td>≈ 2 120 $</td></tr>
-      <tr class="hl"><td>36</td><td>≈ 3 900 $</td><td>≈ 9 000 $</td></tr>
-    </table>
-    <div class="quote">Сначала ты работаешь на депозит. Потом депозит начинает работать на тебя.</div>
-  </div></div>
-</div>
-
-<!-- S5: 3 ОШИБКИ -->
-<div class="section" id="s5">
-  <div class="section-head" onclick="toggle('s5')">
-    <div class="section-icon">⚠️</div>
-    <div class="section-title">3 ошибки которые убивают депозит</div>
-    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    <div class="stage active">
+      <div class="stage-num">3</div>
+      <div>
+        <div class="stage-title">★ Система работает</div>
+        <div class="stage-text">1–3 точных сделки в месяц. 15 минут в день. Прибыль 5–30% в месяц стабильно — против 90% трейдеров которые уходят в минус. Времени уходит мало, нервов — ещё меньше.</div>
+      </div>
+    </div>
   </div>
-  <div class="section-body"><div class="section-inner">
-    <div class="mistake"><div class="mistake-bad">Прыгать за сигналами разных трейдеров</div><div class="mistake-good">Один фильтр, своя логика — следи только за тем, у кого есть система, и накладывай на свою стратегию</div></div>
-    <div class="mistake"><div class="mistake-bad">Мешок альтов в ожидании альтсезона</div><div class="mistake-good">Голубые фишки BTC/ETH/SOL — реальная ликвидность, пережили несколько циклов, признаны институционалами</div></div>
-    <div class="mistake"><div class="mistake-bad">Кросс-маржа и психологические ловушки: FOMO, revenge trading, тильт</div><div class="mistake-good">Чёткий алгоритм входа и выхода убирает эмоции — когда есть правило, нет места тильту. Фиксируй лесенкой: треть на +15%, треть на +30%, остаток на точке выхода</div></div>
-  </div></div>
-</div>
+  <div class="box box-info">
+    <div class="box-head">💡 Главный вывод</div>
+    <p style="margin:0">Новичок думает: чем больше сделок — тем больше прибыль. Поэтому стреляет из пулемёта во все стороны и сливает обойму впустую. Качественный трейдер — это снайпер. Один точный выстрел в месяц лучше двадцати импульсивных.</p>
+  </div>
+</section>
+
+<!-- B4: КАК РАБОТАЕТ СИСТЕМА -->
+<section class="block">
+  <div class="block-head">
+    <div class="block-icon">⚙️</div>
+    <h2 class="block-title">Как работает система ленивого трейдинга</h2>
+  </div>
+  <p>Система держится на трёх элементах. Убери любой — и она не работает.</p>
+
+  <h3>1. Умные деньги</h3>
+  <p>Умные деньги — это крупные фонды, институциональные инвесторы, киты. Они стараются двигать графики незаметно, но всегда оставляют следы. Если умеешь читать эти следы — ты знаешь куда они пойдут дальше. И почти всегда они идут против ожиданий толпы.</p>
+  <p>Пока толпа читает гуру и ставит стопы в очевидных местах — умные деньги знают где эти стопы стоят, и идут именно туда. Толпа становится ликвидностью для китов.</p>
+
+  <h3>2. Отбор сделок</h3>
+  <p>Большинство теряет не потому что сделки плохие — а потому что их слишком много. Чем больше входов, тем больше ошибок. Прибыльный трейдинг на дистанции — это навык отбирать огранённые алмазы из кучи подделок.</p>
+  <p>Перед каждой сделкой два вопроса: совпадает ли это с логикой умных денег? Есть ли потенциал минимум 2:1 к риску? Хотя бы на один ответ «не знаю» — сделку не берём.</p>
+
+  <h3>3. Терпение</h3>
+  <p>Уметь не торговать — такая же часть системы, как уметь входить и выходить. Если правильного момента нет — ты просто ждёшь. Не сидишь у графика. Не дёргаешься. Ничего не делаешь. Это и есть «ленивый» в названии — и именно это отличает систему от хаоса.</p>
+</section>
 
 <!-- MID CTA -->
 <div class="mid-cta">
-  <div class="mid-cta-title">Узнал себя? Разберём твою ситуацию лично</div>
-  <p class="mid-cta-sub">Заполни короткую анкету — посмотрю что у тебя происходит и скажу с чего начать прямо сейчас</p>
-  <a href="https://t.me/ask_piratovich_bot?start=If2PdDeN60o" target="_blank" class="btn-primary">📋 Заполнить анкету</a>
+  <div class="mid-cta-title">Не знаешь что делать со своим портфелем?</div>
+  <p class="mid-cta-sub">Напиши мне в личку — посмотрю что у тебя сейчас, подскажу что продать, что держать и куда направить фокус</p>
+  <a href="https://t.me/m/u38o2BwrYjAy" target="_blank" class="btn-primary">💬 Написать в личку</a>
 </div>
 
-<!-- ════════════════════════════════════════
-     ЧАСТЬ 2 — АЛЬЯНС
-═════════════════════════════════════════ -->
+<!-- ═══ ЧАСТЬ 2: АЛЬЯНС ═══ -->
 <div class="part-label">
   <div class="part-label-line"></div>
   <div class="part-label-text">Часть 2 — Альянс</div>
   <div class="part-label-line"></div>
 </div>
 
-<!-- S6: УЗНАЙ СЕБЯ -->
-<div class="section" id="s6">
-  <div class="section-head" onclick="toggle('s6')">
-    <div class="section-icon">🪞</div>
-    <div class="section-title">Узнай себя в одной из этих ситуаций</div>
-    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+<!-- B5: УЗНАЙ СЕБЯ -->
+<section class="block">
+  <div class="block-head">
+    <div class="block-icon">🪞</div>
+    <h2 class="block-title">Альянс вытащит тебя, если ты узнал себя в одной из этих ситуаций</h2>
   </div>
-  <div class="section-body"><div class="section-inner">
-    <div class="portraits">
-      <div class="portrait">
-        <div class="portrait-title">«Торгую, но сливаю»</div>
-        <p class="portrait-text">Ты в крипте уже какое-то время. Пробовал фьючи — тебя ликвидовало. Был портфель $30 000, стало $4 000. Следишь за аналитиками из Telegram, иногда заходишь по их сигналам — в итоге ещё глубже в минус. Понимаешь что делаешь что-то не так, но не понимаешь что именно.</p>
-      </div>
-      <div class="portrait">
-        <div class="portrait-title">«Купил, жду когда отрастёт»</div>
-        <p class="portrait-text">Закупился в хайп — говорили что будут иксы. Сейчас сидишь в минус 70–90% и ждёшь. Уже несколько лет ждёшь. Половину монет уже делистили с бирж. Продавать страшно — вдруг отрастёт именно тогда, когда продашь.</p>
-      </div>
-      <div class="portrait">
-        <div class="portrait-title">«Хочу зайти, но страшно»</div>
-        <p class="portrait-text">Видишь как люди зарабатывают. Но вокруг слишком много историй про людей которых ликвидовало, которые потеряли всё. Не знаешь кому верить — у всех красивые скрины, а реальных результатов на дистанции никто не показывает.</p>
-      </div>
+  <div class="portraits">
+    <div class="portrait">
+      <div class="portrait-title">«Торгую, но сливаю»</div>
+      <p class="portrait-text">Ты в крипте уже какое-то время. Пробовал фьючи — ликвидовало. Был портфель — стало в разы меньше. Следишь за аналитиками из Telegram, заходишь по их сигналам — и проваливаешься ещё глубже. Понимаешь что делаешь что-то не так, но не понимаешь что именно.</p>
     </div>
-    <div class="box box-dark">
-      <div class="box-head">⚡ В чём настоящая проблема</div>
-      <p style="margin:0">Не в рынке. Не в монетах. Слишком много информации — и ноль структуры, которая превращает её в результат.</p>
+    <div class="portrait">
+      <div class="portrait-title">«Купил, жду когда отрастёт»</div>
+      <p class="portrait-text">Закупился технологическими альткоинами на долгосрок — обещали иксы. Сейчас сидишь в минус 70–90%, ждёшь уже несколько лет. Половину монет удалили с бирж. Продавать страшно — вдруг отрастёт именно тогда когда продашь. Не понимаешь: продать сейчас и забрать хоть что-то, или держать в надежде на возврат хотя бы в ноль.</p>
     </div>
-    <div class="photo-ph">
+    <div class="portrait">
+      <div class="portrait-title">«Хочу зарабатывать, но крипта кажется казино»</div>
+      <p class="portrait-text">Видишь как другие зарабатывают — кто-то реально, кто-то теряет всё. Хочешь дополнительный доход, но крипта похожа на пирамиду или ставки. Не знаешь, можно ли тут вообще зарабатывать без риска потерять всё.</p>
+    </div>
+  </div>
+  <div class="box box-dark">
+    <div class="box-head">⚡ В чём настоящая проблема</div>
+    <p>Рынок поменялся с приходом Трампа. А большинство до сих пор торгует по-старому — по тем же стратегиям, в ожидании альтсезона который не приходит.</p>
+    <p style="margin:0">Возьми Рафаэля — известный криптоблогер. Закупился альтами, засадил в них всех подписчиков, и теперь сидит ждёт альтсезона. Ему уже невыгодно говорить правду — только «ждите, скоро взлетит». А люди уже потеряли деньги и сидят в минусах по 70–90%.</p>
+  </div>
+  <div class="photo-ph">
+    <div class="photo-ph-icon">📸</div>
+    <div class="photo-ph-label">Скрин переписки — «был портфель, осталось 10%»</div>
+    <div class="photo-ph-file">images/pain-portfolio-loss.jpg</div>
+  </div>
+</section>
+
+<!-- B6: КТО ТАКОЙ ШЕФ -->
+<section class="block">
+  <div class="block-head">
+    <div class="block-icon">👤</div>
+    <h2 class="block-title">Кто такой Шеф и почему ему можно доверять</h2>
+  </div>
+  <p>Меня зовут Шеф. Больше 7 лет в крипте. Через мои продукты прошло больше 3 000 человек.</p>
+  <p>Начинал как все — торговал сам, набивал шишки, терял деньги. Потом стал системно скупать платные каналы и закрытые клубы — изучал что делают другие, что у них работает, а что нет. Это стоило сотни тысяч долларов и несколько лет наблюдений.</p>
+  <p>Параллельно делился этим с подписчиками — выкладывал лучшее что находил, делал свои разборы поверх, давал собственную аналитику. Постепенно из этого сложилась своя система: своя торговая стратегия, свой подход к управлению депозитом, своя команда аналитиков.</p>
+  <div class="photo-ph">
+    <div class="photo-ph-icon">📸</div>
+    <div class="photo-ph-label">Скрин таблицы с купленными приватками (имена замазаны)</div>
+    <div class="photo-ph-file">images/shef-privatki-list.jpg</div>
+  </div>
+  <p>В итоге стало понятно одно: большинство людей которые что-то продают на этом рынке зарабатывают не на торговле — а на тебе. Приватки, рефералки, реклама бирж. Реальных результатов на дистанции почти ни у кого нет.</p>
+  <div class="photo-row">
+    <div class="photo-ph" style="margin:0">
       <div class="photo-ph-icon">📸</div>
-      <div class="photo-ph-label">Скрин переписки — «был портфель $100k, осталось $6k»</div>
-      <div class="photo-ph-file">images/pain-portfolio-loss.jpg</div>
+      <div class="photo-ph-label">Скрин дашборда / статистики</div>
+      <div class="photo-ph-file">images/shef-dashboard.jpg</div>
     </div>
-  </div></div>
-</div>
-
-<!-- S7: КТО ТАКОЙ ШЕФ -->
-<div class="section" id="s7">
-  <div class="section-head" onclick="toggle('s7')">
-    <div class="section-icon">👤</div>
-    <div class="section-title">Кто такой Шеф и почему ему можно доверять</div>
-    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-  </div>
-  <div class="section-body"><div class="section-inner">
-    <p>Меня зовут Шеф. Больше 7 лет в крипте. Через мои продукты прошло больше 3 000 человек.</p>
-    <p>Начинал как все — пробовал торговать сам, набивал шишки, терял деньги. Потом начал изучать чужие подходы системно: выкупал десятки платных каналов и закрытых клубов. Это стоило сотни тысяч долларов и несколько лет наблюдений.</p>
-    <div class="photo-ph">
+    <div class="photo-ph" style="margin:0">
       <div class="photo-ph-icon">📸</div>
-      <div class="photo-ph-label">Скрин таблицы с купленными приватками (имена замазаны)</div>
-      <div class="photo-ph-file">images/shef-privatki-list.jpg</div>
+      <div class="photo-ph-label">Скрин поста — предсказание дампа с датой</div>
+      <div class="photo-ph-file">images/shef-prediction-post.jpg</div>
     </div>
-    <p>Стало понятно одно: большинство людей которые что-то продают на этом рынке зарабатывают не на торговле — они зарабатывают на тебе. На приватках, рефералках, рекламе бирж.</p>
-    <p>На основе этого сложилась собственная система — своя торговая стратегия, свой подход к управлению депозитом, своя команда аналитиков.</p>
-    <div class="photo-row">
-      <div class="photo-ph" style="margin:0">
-        <div class="photo-ph-icon">📸</div>
-        <div class="photo-ph-label">Скрин дашборда / статистики</div>
-        <div class="photo-ph-file">images/shef-dashboard.jpg</div>
-      </div>
-      <div class="photo-ph" style="margin:0">
-        <div class="photo-ph-icon">📸</div>
-        <div class="photo-ph-label">Скрин поста — предсказание дампа с датой</div>
-        <div class="photo-ph-file">images/shef-prediction-post.jpg</div>
-      </div>
-    </div>
-    <div class="quote">
-      Каждый значимый дамп последних полутора лет был предсказан заранее в моих каналах. Участники Альянса не участвовали в крупных ликвидациях — потому что выходили из позиций когда я предупреждал. Это не везение — это система.
-      <div class="quote-by">— Шеф</div>
-    </div>
-  </div></div>
-</div>
-
-<!-- S8: ЧЕТЫРЕ ПУТИ -->
-<div class="section" id="s8">
-  <div class="section-head" onclick="toggle('s8')">
-    <div class="section-icon">🔀</div>
-    <div class="section-title">У тебя есть несколько вариантов</div>
-    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
-  <div class="section-body"><div class="section-inner">
-    <div class="paths">
-      <div class="path danger">
-        <div class="path-num">0</div>
-        <div>
-          <div class="path-title">Продолжать как сейчас</div>
-          <p class="path-text">Скитаться по бесплатным каналам, доверять людям без репутации и без реальных результатов, прыгать от сигнала к сигналу. Красивые скрины, обещания иксов — и ноль ответственности. В итоге снова потери и снова поиск «того самого» канала.</p>
-        </div>
-      </div>
-      <div class="path">
-        <div class="path-num">1</div>
-        <div>
-          <div class="path-title">Основной канал</div>
-          <p class="path-text">Подписываешься на бесплатный канал, читаешь посты, иногда заходишь в сделки которые я подсвечиваю. Бесплатно, но медленно. Нет детальных разборов, нет сопровождения, нет личного общения.</p>
-        </div>
-      </div>
-      <div class="path featured">
-        <div class="path-num">2</div>
-        <div>
-          <div class="path-title">Альянс <span class="path-badge">Рекомендую</span></div>
-          <p class="path-text">Закрытая экосистема со всеми инструментами для системного результата. Обучение под твой уровень, сигналы с полной логикой, экспертный контент, живое комьюнити, регулярные созвоны. Оптимальное соотношение глубины, доступа и стоимости.</p>
-        </div>
-      </div>
-    </div>
-  </div></div>
-</div>
-
-<!-- S9: ЧТО ВНУТРИ АЛЬЯНСА -->
-<div class="section" id="s9">
-  <div class="section-head" onclick="toggle('s9')">
-    <div class="section-icon">🏰</div>
-    <div class="section-title">Что внутри Альянса</div>
-    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  <div class="quote">
+    Каждый крупный дамп последних полутора лет был предсказан в моих каналах заранее. Участники Альянса не попали под крупные ликвидации — потому что выходили из позиций когда я предупреждал. Это не везение и не интуиция — это просто работающая система.
+    <div class="quote-by">— Шеф</div>
   </div>
-  <div class="section-body"><div class="section-inner">
-    <div class="opory">
-      <div class="opora">
-        <div class="opora-num">Онбординг</div>
-        <div class="opora-title">С первой минуты понятно что делать</div>
-        <p class="opora-text">Ты не остаёшься один перед огромным количеством материала без понимания с чего начать. Онбординг проведёт по шагам в зависимости от твоего уровня — и в первые 15 минут ты уже внутри системы.</p>
-      </div>
-      <div class="opora">
-        <div class="opora-num">Опора 1</div>
-        <div class="opora-title">Торговая система</div>
-        <p class="opora-text">Адаптируется под твой уровень. Только начинаешь — практическая база и блок «как не потерять деньги». Уже торгуешь — стратегии и фильтрация сделок. Есть стабильный результат — продвинутый блок: смартмани, объёмы, сложные инструменты. К системе прилагается индикатор шефа, методичка по управлению рисками, разборы рынка на зумах.</p>
-      </div>
-      <div class="opora">
-        <div class="opora-num">Опора 2</div>
-        <div class="opora-title">Сигналы шефа</div>
-        <p class="opora-text">Каждый сигнал — полный цикл мышления: почему этот актив, на каком уровне входить, какой размер позиции. Плюс сопровождение и разбор после закрытия. И главное — предупреждения о дампах заранее. Каждое серьёзное падение последних полутора лет было предсказано до того как произошло.</p>
-      </div>
-      <div class="opora">
-        <div class="opora-num">Опора 3</div>
-        <div class="opora-title">Экспертный контент</div>
-        <p class="opora-text">Макро-разборы событий и их влияние на крипту. Разборы реальных ошибок участников. Анализ прогнозов других аналитиков — почему ошиблись. Посты в формате «как я думаю когда отбираю сделку». Это то что превращает тебя из человека который копирует — в человека который понимает.</p>
-      </div>
-      <div class="opora">
-        <div class="opora-num">Опора 4</div>
-        <div class="opora-title">Комьюнити и созвоны</div>
-        <p class="opora-text">Люди открыто делятся опытом и наработками — не хвастаются скринами, а обмениваются тем что реально работает. Раз в две недели — закрытые созвоны с разбором ситуаций участников. Раз в месяц — публичные созвоны. Лестница роста — от публикации сделок до ветки Звёзд Альянса (макс. 5 человек) и возможного ханта в команду.</p>
-      </div>
-    </div>
-    <div class="photo-row">
-      <div class="photo-ph" style="margin:0">
-        <div class="photo-ph-icon">📸</div>
-        <div class="photo-ph-label">Скрин интерфейса / онбординга Альянса</div>
-        <div class="photo-ph-file">images/alliance-onboarding.jpg</div>
-      </div>
-      <div class="photo-ph" style="margin:0">
-        <div class="photo-ph-icon">📸</div>
-        <div class="photo-ph-label">Скрин сигнала с логикой входа</div>
-        <div class="photo-ph-file">images/alliance-signal.jpg</div>
-      </div>
-    </div>
-  </div></div>
-</div>
+</section>
 
-<!-- S10: ЧЕМ ОТЛИЧАЕТСЯ -->
-<div class="section" id="s10">
-  <div class="section-head" onclick="toggle('s10')">
-    <div class="section-icon">⚡</div>
-    <div class="section-title">Чем Альянс отличается от всего остального</div>
-    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+<!-- B7: ВАРИАНТЫ -->
+<section class="block">
+  <div class="block-head">
+    <div class="block-icon">🔀</div>
+    <h2 class="block-title">У тебя есть три варианта</h2>
   </div>
-  <div class="section-body"><div class="section-inner">
-    <p>Большинство крипто-продуктов делают одно из трёх:</p>
-    <table class="diff">
-      <tr><th>Что они делают</th><th>Чем это заканчивается</th></tr>
-      <tr><td class="bad">Дают сигналы без объяснений</td><td>Ты копируешь вслепую. Работает пока рынок растёт — сливает когда падает.</td></tr>
-      <tr><td class="bad">Продают обучение без практики</td><td>Выходишь с теорией, но без навыка работы на реальном рынке.</td></tr>
-      <tr><td class="bad">Создают комьюнити без экспертизы</td><td>Люди обсуждают рынок не понимая что происходит.</td></tr>
-    </table>
-    <p>Альянс делает всё четыре сразу. И добавляет пятый элемент которого нет нигде — <strong>фильтр шефа</strong>. Я беру на себя задачу выбирать лучшее из рынка и подавать с собственной логикой. Ты не тонешь в десятках источников — получаешь концентрат, проверенный человеком который много лет в рынке.</p>
-    <div class="box box-light">
-      <div class="box-head">⚡ И когда рынок плохой</div>
-      <p style="margin:0">Большинство каналов замолкают когда падает. Альянс работает в любой фазе — потому что у системы есть инструменты под разную рыночную обстановку, а не один подход который работает только когда всё растёт.</p>
+  <div class="paths">
+    <div class="path danger">
+      <div class="path-num">0</div>
+      <div>
+        <div class="path-title">Продолжать как сейчас</div>
+        <p class="path-text">Скитаться по бесплатным каналам, доверять людям без репутации и без реальных результатов, прыгать от сигнала к сигналу. Красивые скрины, обещания иксов — и ноль ответственности за твои потери. В итоге снова сливаешь и снова ищешь «тот самый» канал.</p>
+      </div>
     </div>
-  </div></div>
-</div>
-
-<!-- S11: ОКУПАЕМОСТЬ + КЕЙСЫ -->
-<div class="section" id="s11">
-  <div class="section-head" onclick="toggle('s11')">
-    <div class="section-icon">📈</div>
-    <div class="section-title">Окупаемость и реальные истории участников</div>
-    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    <div class="path">
+      <div class="path-num">1</div>
+      <div>
+        <div class="path-title">Основной канал</div>
+        <p class="path-text">Подписываешься на бесплатный канал, читаешь посты, иногда заходишь в сделки которые я подсвечиваю. Бесплатно, но медленно. Без детальных разборов, без сопровождения, без личного общения.</p>
+      </div>
+    </div>
+    <div class="path featured">
+      <div class="path-num">2</div>
+      <div>
+        <div class="path-title">Альянс <span class="path-badge">Рекомендую</span></div>
+        <p class="path-text">Закрытая экосистема: торговая система под твой уровень, сигналы с полной логикой, экспертный контент, живое комьюнити, регулярные созвоны с разбором ситуаций участников. Здесь ты не один — рядом эксперт и люди которые в теме.</p>
+      </div>
+    </div>
   </div>
-  <div class="section-body"><div class="section-inner">
-    <div class="box box-info">
-      <div class="box-head">💡 Главное про окупаемость</div>
-      <p style="margin:0">При капитале от 100 000 ₽ продукт окупается на дистанции 1–3 месяцев при должном включении. Это не обещание иксов — это реальная динамика участников которые применяют систему.</p>
-    </div>
-    <div class="stories">
-      <div class="story">
-        <div class="story-title">🔄 От хаоса к системе</div>
-        <p class="story-text">Участник зашёл после нескольких лет хаотичной торговли. Десятки приваток, постоянные потери, попытки отыграться через высокие плечи. Через три месяца — собственная стратегия, дисциплина по риск-менеджменту, стабильный результат. Главное изменение — не цифры, а голова.</p>
-      </div>
-      <div class="story">
-        <div class="story-title">🛡️ Одно предупреждение окупило всё</div>
-        <p class="story-text">Участник пришёл осенью 2024-го. Когда я опубликовал предупреждение о возможном сливе — он закрыл позиции в небольшой минус. Через несколько дней рынок упал на 30%. Если бы остался — потерял бы половину депозита. Стоимость Альянса окупилась одним этим решением.</p>
-      </div>
-      <div class="story">
-        <div class="story-title">📊 Небольшой депозит — стабильный результат</div>
-        <p class="story-text">Зашёл с небольшим капиталом и чётко следовал системе: только подсвеченные идеи, только спот, только ликвидные монеты. За три месяца — стабильный плюс каждую неделю. Никаких фьючей, никаких плечей — просто работающая система.</p>
-      </div>
-    </div>
-    <div class="photo-row">
-      <div class="photo-ph" style="margin:0">
-        <div class="photo-ph-icon">📸</div>
-        <div class="photo-ph-label">Скрин P&L участника 1</div>
-        <div class="photo-ph-file">images/result-pnl-1.jpg</div>
-      </div>
-      <div class="photo-ph" style="margin:0">
-        <div class="photo-ph-icon">📸</div>
-        <div class="photo-ph-label">Скрин P&L участника 2</div>
-        <div class="photo-ph-file">images/result-pnl-2.jpg</div>
-      </div>
-    </div>
-  </div></div>
-</div>
+</section>
 
-<!-- S12: ЦЕНА + КАК ПОПАСТЬ -->
-<div class="section" id="s12">
-  <div class="section-head" onclick="toggle('s12')">
-    <div class="section-icon">🚪</div>
-    <div class="section-title">Цена и как попасть</div>
-    <svg class="section-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+<!-- B8: ЧТО ВНУТРИ -->
+<section class="block">
+  <div class="block-head">
+    <div class="block-icon">🏰</div>
+    <h2 class="block-title">Что внутри Альянса</h2>
   </div>
-  <div class="section-body"><div class="section-inner">
-    <h3>Три шага чтобы войти</h3>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div>
-          <div class="step-title">Заполнить анкету предзаписи</div>
-          <p class="step-text">Короткая анкета на 2 минуты. Расскажи свою ситуацию: опыт, капитал, цели. Это нужно чтобы понять кто ты и подходит ли тебе продукт прямо сейчас.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div>
-          <div class="step-title">Диагностика в личке</div>
-          <p class="step-text">После анкеты разбираем твою ситуацию, отвечаем на вопросы. Бесплатно, без обязательств. Если Альянс тебе не подходит — прямо скажем. По результатам диагностики возможны индивидуальные условия.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div>
-          <div class="step-title">Оплата и вход</div>
-          <p class="step-text">Онбординг в первые 15 минут после оплаты. Сразу понятно с чего начать и что делать на первой неделе.</p>
-        </div>
-      </div>
+  <div class="opory">
+    <div class="opora">
+      <div class="opora-num">Онбординг</div>
+      <div class="opora-title">С первой минуты понятно что делать</div>
+      <p class="opora-text">Ты не остаёшься один перед огромным количеством материала, не понимая с чего начать. Онбординг проведёт по шагам в зависимости от твоего уровня — и в первые 15 минут ты уже внутри системы.</p>
     </div>
-
-    <h3>Сколько это стоит</h3>
-    <p>Посмотри что внутри Альянса: торговая система под твой уровень, сигналы с логикой, экспертный контент, созвоны, комьюнити, лестница роста, личный доступ к эксперту с 7-летним опытом.</p>
-    <p>Сколько бы ты поставил за это если бы не знал цену?</p>
-
-    <div class="price-guesses">
-      <div class="price-guess"><div class="price-guess-val">200 000 ₽</div><div class="price-guess-lbl">думали некоторые</div></div>
-      <div class="price-guess"><div class="price-guess-val">300 000 ₽</div><div class="price-guess-lbl">думали некоторые</div></div>
-      <div class="price-guess"><div class="price-guess-val">500 000 ₽</div><div class="price-guess-lbl">думали некоторые</div></div>
+    <div class="opora">
+      <div class="opora-num">Опора 1</div>
+      <div class="opora-title">Торговая система</div>
+      <p class="opora-text">Универсальной стратегии, которая подойдёт каждому, не существует — ты разрабатываешь свою. Но первое время, пока учишься, можешь повторять за стратегией шефа и обкатывать её на реальных сделках. Три уровня: база для новичков, стратегии и фильтрация сделок, продвинутый блок (смартмани, объёмы). Плюс методичка по управлению рисками и регулярные разборы рынка на зумах.</p>
     </div>
-
-    <div class="price-real">
-      <div class="price-real-label">Реальная цена</div>
-      <div class="price-real-val">50 000 ₽</div>
-      <div class="price-real-sub">за год доступа</div>
-      <div class="price-real-alt">или <strong>70 000 ₽</strong> за два года</div>
+    <div class="opora">
+      <div class="opora-num">Опора 2</div>
+      <div class="opora-title">Сигналы шефа</div>
+      <p class="opora-text">Каждый сигнал — это полный цикл мышления. Почему именно этот актив, на каком уровне входить, какой размер позиции. Дальше — сопровождение, при изменении ситуации актуализация. После закрытия — разбор. И главное — предупреждения о дампах заранее. Каждое крупное падение последних полутора лет было предсказано до того как произошло. Альянс окупается просто за счёт того что ты сохранишь деньги на следующих больших сливах рынка.</p>
     </div>
-
-    <div class="chat-bubbles">
-      <div class="bubble">
-        <div class="bubble-avatar">👤</div>
-        <div class="bubble-text">Думал будет в разы дороже с таким составом</div>
-      </div>
-      <div class="bubble">
-        <div class="bubble-avatar">👤</div>
-        <div class="bubble-text">50к за год окупается за одну нормальную сделку при капитале от 200к+</div>
-      </div>
-      <div class="bubble right">
-        <div class="bubble-avatar">🎩</div>
-        <div class="bubble-text">Именно поэтому и оставили такую цену. При должном включении окупается за 1–3 месяца.</div>
-      </div>
+    <div class="opora">
+      <div class="opora-num">Опора 3</div>
+      <div class="opora-title">Экспертный контент</div>
+      <p class="opora-text">Макро-разборы событий и их влияния на крипту. Разборы реальных ошибок участников. Анализ прогнозов других аналитиков — где ошиблись и почему. Посты в формате «как я думаю когда отбираю сделку». Всё это превращает тебя из человека который копирует — в человека который понимает что делает.</p>
     </div>
-
-    <div class="photo-ph">
+    <div class="opora">
+      <div class="opora-num">Опора 4</div>
+      <div class="opora-title">Комьюнити и созвоны</div>
+      <p class="opora-text">Внутри люди делятся опытом и наработками — не хвастаются скринами, а обмениваются тем что реально работает. Есть закрытая ветка где лучшие участники Альянса публикуют свои сделки, и раз в месяц подводят открытую статистику по торговле. Пока учишься — можешь следить за ними и повторять. Раз в две недели — закрытые созвоны. Раз в месяц — публичные.</p>
+    </div>
+  </div>
+  <div class="photo-row">
+    <div class="photo-ph" style="margin:0">
       <div class="photo-ph-icon">📸</div>
-      <div class="photo-ph-label">Скрин переписки — реакции участников на цену</div>
-      <div class="photo-ph-file">images/price-reactions.jpg</div>
+      <div class="photo-ph-label">Скрин интерфейса / онбординга Альянса</div>
+      <div class="photo-ph-file">images/alliance-onboarding.jpg</div>
     </div>
+    <div class="photo-ph" style="margin:0">
+      <div class="photo-ph-icon">📸</div>
+      <div class="photo-ph-label">Скрин сигнала с логикой входа</div>
+      <div class="photo-ph-file">images/alliance-signal.jpg</div>
+    </div>
+  </div>
+</section>
 
-    <div class="slots-block">
-      <div class="slots-bar-wrap">
-        <div class="slots-bar-label"><span>Занятых мест</span><span>Лимит: 500 участников</span></div>
-        <div class="slots-bar-bg"><div class="slots-bar-fill"></div></div>
-      </div>
-      <div class="slots-text">
-        <span class="slots-num">~310</span>
-        <span style="font-size:12px;color:var(--muted)">участников</span>
-      </div>
-    </div>
+<!-- B9: ЧЕМ ОТЛИЧАЕТСЯ -->
+<section class="block">
+  <div class="block-head">
+    <div class="block-icon">⚡</div>
+    <h2 class="block-title">Чем Альянс отличается от всего остального</h2>
+  </div>
+  <p>Большинство крипто-продуктов делают одно из трёх:</p>
+  <table class="diff">
+    <tr><th>Что они делают</th><th>Чем это заканчивается</th></tr>
+    <tr><td class="bad">Дают сигналы без объяснений</td><td>Ты копируешь вслепую. Работает пока рынок растёт — сливает когда падает.</td></tr>
+    <tr><td class="bad">Продают обучение без практики</td><td>Выходишь с теорией, но без навыка работы на реальном рынке.</td></tr>
+    <tr><td class="bad">Делают чат без экспертизы</td><td>Люди обсуждают рынок, не понимая что происходит.</td></tr>
+  </table>
+  <p>Альянс собирает все три направления в одной экосистеме — обучение, сигналы и комьюнити работают вместе. И главное что отличает Альянс — это <strong>эксперт который сам торгует</strong>, отвечает за свои предсказания и каждый крупный дамп последних полутора лет назвал заранее.</p>
+  <div class="box box-light">
+    <div class="box-head">⚡ И когда рынок плохой</div>
+    <p style="margin:0">Большинство каналов замолкают на падающем рынке. Альянс работает в любой фазе — потому что у системы есть инструменты под разные рыночные условия, а не один подход который работает только когда всё растёт.</p>
+  </div>
+</section>
 
-    <div class="box box-dark">
-      <div class="box-head">⚡ Важно про капитал</div>
-      <p style="margin:0">Альянс рассчитан на людей с капиталом от 100 000 ₽. Это не граница входа по цене — это граница на которой система начинает давать заметный результат.</p>
+<!-- B10: ОКУПАЕМОСТЬ + КЕЙСЫ -->
+<section class="block">
+  <div class="block-head">
+    <div class="block-icon">📈</div>
+    <h2 class="block-title">Окупаемость и реальные истории участников</h2>
+  </div>
+  <div class="box box-info">
+    <div class="box-head">💡 Главное про окупаемость</div>
+    <p style="margin:0">При капитале от 100 000 ₽ продукт окупается за 1–3 месяца — при условии что ты включён, а не пассивно подписан. Это не обещание иксов, это реальная динамика участников которые применяют систему.</p>
+  </div>
+  <div class="stories">
+    <div class="story">
+      <div class="story-title">🔄 От хаоса к стабильной копеечке</div>
+      <p class="story-text">Участник зашёл после нескольких лет хаотичной торговли. Десятки приваток, постоянные потери, попытки отыграться через высокие плечи. Через три месяца — собственная торговая стратегия, нормальный риск-менеджмент и стабильный плюс 500–1000$ в месяц. Не иксы, но каждый месяц, без нервов.</p>
     </div>
-  </div></div>
-</div>
+    <div class="story">
+      <div class="story-title">🛡️ Одно предупреждение окупило всё</div>
+      <p class="story-text">Участник пришёл осенью 2024-го. Когда я опубликовал предупреждение о возможном сливе — он закрыл позиции в небольшой минус. Через несколько дней рынок упал на 30%. Если бы остался — потерял бы половину депозита. Стоимость Альянса окупилась этим одним решением.</p>
+    </div>
+    <div class="story">
+      <div class="story-title">📊 Небольшой депозит — стабильный результат</div>
+      <p class="story-text">Зашёл с небольшим капиталом и чётко следовал системе: только спот, только ликвидные монеты, только сделки шефа — параллельно набивая собственную стратегию. За три месяца — стабильный плюс каждую неделю. Без фьючей, без плечей. Просто работающая система.</p>
+    </div>
+  </div>
+  <div class="photo-row">
+    <div class="photo-ph" style="margin:0">
+      <div class="photo-ph-icon">📸</div>
+      <div class="photo-ph-label">Скрин P&L участника 1</div>
+      <div class="photo-ph-file">images/result-pnl-1.jpg</div>
+    </div>
+    <div class="photo-ph" style="margin:0">
+      <div class="photo-ph-icon">📸</div>
+      <div class="photo-ph-label">Скрин P&L участника 2</div>
+      <div class="photo-ph-file">images/result-pnl-2.jpg</div>
+    </div>
+  </div>
+</section>
+
+<!-- B11: ЦЕНА + КАК ПОПАСТЬ -->
+<section class="block">
+  <div class="block-head">
+    <div class="block-icon">🚪</div>
+    <h2 class="block-title">Цена и как попасть</h2>
+  </div>
+  <h3>Три шага чтобы войти</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">Написать в личку</div>
+        <p class="step-text">Напиши мне — расскажи что сейчас с твоим портфелем или торговлей. Разберу твою ситуацию: что держать, что продать, куда направить фокус. Бесплатно, ни к чему не обязывает.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">Диагностика и анкета</div>
+        <p class="step-text">После разговора, если Альянс тебе подходит — скинем анкету предзаписи. Если не подходит — прямо скажем и порекомендуем что делать вместо. По результатам диагностики возможны индивидуальные условия.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">Оплата и вход</div>
+        <p class="step-text">Онбординг в первые 15 минут после оплаты. Сразу понятно с чего начать и что делать на первой неделе.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Сколько это стоит</h3>
+  <p>Внутри Альянса: торговая система под твой уровень, сигналы с логикой и сопровождением, экспертный контент, регулярные созвоны, комьюнити и личный доступ к эксперту с 7-летним опытом в рынке.</p>
+  <p>Те кто заходил впервые часто думают что такое стоит сильно дороже:</p>
+
+  <div class="price-guesses">
+    <div class="price-guess"><div class="price-guess-val">500 000 ₽</div><div class="price-guess-lbl">думали некоторые</div></div>
+    <div class="price-guess"><div class="price-guess-val">300 000 ₽</div><div class="price-guess-lbl">думали некоторые</div></div>
+    <div class="price-guess"><div class="price-guess-val">200 000 ₽</div><div class="price-guess-lbl">думали некоторые</div></div>
+  </div>
+
+  <div class="price-real">
+    <div class="price-real-label">Реальная цена</div>
+    <div class="price-real-val">50 000 ₽</div>
+    <div class="price-real-sub">за год доступа</div>
+    <div class="price-real-alt">или <strong>70 000 ₽</strong> за два года</div>
+  </div>
+
+  <div class="chat-bubbles">
+    <div class="bubble">
+      <div class="bubble-avatar">👤</div>
+      <div class="bubble-text">Думал будет в разы дороже с таким составом</div>
+    </div>
+    <div class="bubble">
+      <div class="bubble-avatar">👤</div>
+      <div class="bubble-text">50к за год окупается одной нормальной сделкой при капитале от 200к</div>
+    </div>
+    <div class="bubble right">
+      <div class="bubble-avatar">🎩</div>
+      <div class="bubble-text">Именно поэтому и оставили такую цену. При нормальном включении окупается за 1–3 месяца.</div>
+    </div>
+  </div>
+
+  <div class="photo-ph">
+    <div class="photo-ph-icon">📸</div>
+    <div class="photo-ph-label">Скрин переписки — реакции участников на цену</div>
+    <div class="photo-ph-file">images/price-reactions.jpg</div>
+  </div>
+
+  <div class="slots-block">
+    <div class="slots-bar-wrap">
+      <div class="slots-bar-label"><span>Занятых мест</span><span>Лимит: 500 участников</span></div>
+      <div class="slots-bar-bg"><div class="slots-bar-fill"></div></div>
+    </div>
+    <div class="slots-text">
+      <span class="slots-num">~310</span>
+      <span style="font-size:12px;color:var(--muted)">участников</span>
+    </div>
+  </div>
+
+  <div class="box box-dark">
+    <div class="box-head">⚡ Важно про капитал</div>
+    <p style="margin:0">Альянс рассчитан на людей с капиталом от 100 000 ₽. Это не граница входа по цене — это тот уровень, на котором система начинает давать заметные деньги. С меньшим депозитом результат тоже будет, но медленнее.</p>
+  </div>
+</section>
 
 <!-- FINAL CTA -->
 <div class="final-cta">
   <div class="final-cta-label">Что делать прямо сейчас</div>
-  <div class="final-cta-title">Заполни анкету — разберём твой кейс лично</div>
-  <p class="final-cta-sub">Нажми на кнопку, заполни короткую анкету и напиши в личку. Разберём твою ситуацию и скажем честно — подойдёт ли тебе Альянс прямо сейчас или нет.</p>
-  <p class="final-cta-sub">В худшем случае — получишь бесплатную диагностику от человека который 7 лет в крипте. В лучшем — найдёшь систему которая изменит результаты на дистанции.</p>
+  <div class="final-cta-title">Напиши в личку — разберём твой портфель</div>
+  <p class="final-cta-sub">Расскажи что сейчас с твоей торговлей или портфелем. Подскажу что продать, что держать, куда направить фокус. И скажу честно — подойдёт ли тебе Альянс прямо сейчас или нет.</p>
+  <p class="final-cta-sub">В худшем случае — получишь бесплатный разбор от человека который 7 лет в крипте. В лучшем — найдёшь систему которая поменяет твои результаты.</p>
   <div class="btn-group">
-    <a href="https://t.me/ask_piratovich_bot?start=If2PdDeN60o" target="_blank" class="btn-primary">📋 Заполнить анкету</a>
-    <a href="https://t.me/m/u38o2BwrYjAy" target="_blank" class="btn-secondary">💬 Написать в личку</a>
+    <a href="https://t.me/m/u38o2BwrYjAy" target="_blank" class="btn-primary">💬 Написать в личку</a>
   </div>
-  <div class="final-cta-note">Заполнение анкеты ни к чему не обязывает · Если Альянс не подходит — скажем честно</div>
+  <div class="final-cta-note">Бесплатно и ни к чему не обязывает · Если Альянс не подходит — скажем честно</div>
 </div>
 
 <!-- FOOTER -->
@@ -771,25 +651,10 @@ footer { text-align:center; padding:36px 0 0; border-top:1px solid var(--border)
   <div class="footer-note">Система ленивого трейдинга · Альянс · 2026</div>
   <div class="footer-links">
     <a href="https://t.me/piratlinks" target="_blank">📡 Канал</a>
-    <a href="https://t.me/ask_piratovich_bot?start=If2PdDeN60o" target="_blank">📋 Анкета</a>
     <a href="https://t.me/m/u38o2BwrYjAy" target="_blank">💬 Написать</a>
   </div>
 </footer>
 
 </div>
-<script>
-function toggle(id){
-  const s=document.getElementById(id);
-  const b=s.querySelector('.section-body');
-  const open=s.classList.contains('open');
-  s.classList.toggle('open');
-  b.style.maxHeight=open?'0':b.scrollHeight+'px';
-}
-window.addEventListener('load',()=>{
-  document.querySelectorAll('.section.open').forEach(s=>{
-    s.querySelector('.section-body').style.maxHeight=s.querySelector('.section-body').scrollHeight+'px';
-  });
-});
-</script>
 </body>
 </html>
